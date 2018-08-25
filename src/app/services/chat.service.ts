@@ -7,37 +7,22 @@ import * as firebase from 'firebase/app';
 import { ChatMessage } from '../models/chat-message.model';
 import { Observable } from 'rxjs';
 import { FirebaseApp } from 'angularfire2';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-  user: any;
+  user: firebase.User;
   chatMessagesRef: AngularFireList<ChatMessage>;
   chatMessages: Observable<any[]>;
   chatMessage: ChatMessage;
-  username: Observable<string>;
+  userName: Observable<string>;
 
   constructor(
     private db: AngularFireDatabase, 
     private afAuth: AngularFireAuth,
   ) { 
-    //var newDB = db.database.refFromURL('https://zeta-flare-143011.firebaseio.com');
-
-    //newDB.push('test');
-    //var child = new AngularFireDatabaseModule();
-    //.child('messages');
-
-    //var testDB = new AngularFireDatabase('https://zeta-flare-143011.firebaseio.com');
-
-    //console.log(AngularFireModule);
-
-    //var x = AngularFireModule.toString();
-
-    var database = firebase.database();
-    firebase.database().ref().push().set('text');
-
-
     this.chatMessagesRef = db.list('messages');
     this.chatMessages = this.chatMessagesRef.valueChanges();
 
@@ -46,37 +31,41 @@ export class ChatService {
       {
         this.user = auth;
       }
+
+      this.getUser().valueChanges().subscribe( a=> 
+        {
+         // this.userName = a.displayName;
+        });
       console.log('Called constructor!');
-    })
+    });
+
+  }
+
+  // see https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
+  getUser()
+  {
+    //const userId = this.user.uid;
+    //const path = `/users/${userId}`;
+
+    return this.db.list('users');
+  }
+
+  getUsers()
+  {
+    const path = `/users`;
+    return this.db.list(path);
   }
 
   sendMessage(msg: string) {
 
-    const timestap = this.getTimeStamp();
-    //const email = this.user.email;
-    const email = 'testEmail';
-    //this.chatMessages = this.getMessages();
-
-    // V1
-    //this.chatMessages.push({
-
-    // V2 :// https://forum.ionicframework.com/t/firebaselistobservable-issue/109671/2
-    //this.db.list('/messages').push({ 
-    //  message: msg,
-    //  timeSent: timestap,
-    //  //userName: this.userName,
-    //  userName: 'userName',
-    //  email: email, 
-    //}).then(() => {
-    //  // message is sent
-    //});
-
+    const timestamp = new Date(); //this.getTimeStamp();
+    const email = this.user.email;
+    const userName = this.userName;
     // V3: // https://github.com/angular/angularfire2/issues/1180
     this.chatMessagesRef.push({ 
         message: msg,
-        timeSent: timestap,
-        //userName: this.userName,
-        userName: 'userName',
+        timeSent: timestamp.toString(),
+        userName:  "karl", //this.userName,
         email: email, 
       }).then( () => {
         console.log('push and then');
@@ -84,21 +73,7 @@ export class ChatService {
 
       );
       // V4: ? https://stackoverflow.com/questions/14190268/is-push-currently-not-working-in-firebase-or-am-i-doing-something-wrong
-
     console.log('Called sendMessage()!');
-  }
-
-  getTimeStamp(): Date {
-    const now = new Date();
-    const date = now.getUTCFullYear() + '/'  + 
-                (now.getUTCMonth() +1) + '/'
-                now.getUTCDate();
-    const time = now.getUTCHours + ':'  + 
-                now.getUTCMinutes + ':'
-                now.getUTCSeconds;
-
-                return  new Date(date + ' ' + time);
-
   }
 
   getMessageFeed() : Observable<any> {
@@ -106,4 +81,19 @@ export class ChatService {
     console.log('Called getMessageFeed()!');
     return this.db.list('messages', ref => ref.limitToLast(25).orderByKey()).valueChanges();
   }
+
+    //getTimeStamp():Date{
+  //  const now = new Date();
+  //  console.log(now);
+//
+  //  const date = now.getUTCFullYear() + '-'  + 
+  //              (now.getUTCMonth() +1) + '-'
+  //              now.getUTCDate();
+  //  const time = now.getUTCHours + ':'  + 
+  //              now.getUTCMinutes + ':'
+  //              now.getUTCSeconds;
+//
+  //  return new Date( date + ' ' + time);
+//
+  //}
 }
