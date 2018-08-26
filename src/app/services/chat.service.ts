@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase, AngularFireList, AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject, AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
@@ -13,41 +13,79 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class ChatService {
+  itemRef: AngularFireObject<any>;
   user: firebase.User;
-  chatMessagesRef: AngularFireList<ChatMessage>;
-  chatMessages: Observable<any[]>;
+  userObj: User;
+  chatUsers: Observable<User[]>;
+  chatMessages: Observable<ChatMessage[]>;
   chatMessage: ChatMessage;
   userName: Observable<string>;
+  userNameStr:string;
 
+  userArray: User[];
+
+ 
+  // https://dzone.com/articles/observables-with-the-angular-5
+  // https://github.com/angular/angularfire2/issues/1220
+  // https://stackoverflow.com/questions/48123366/how-i-can-call-observable-complete-callback-function-it-doesnt-work
   constructor(
     private db: AngularFireDatabase, 
     private afAuth: AngularFireAuth,
   ) { 
-    this.chatMessagesRef = db.list('messages');
-    this.chatMessages = this.chatMessagesRef.valueChanges();
-
     this.afAuth.authState.subscribe(auth => {
       if( auth !== undefined && auth !== null)
       {
         this.user = auth;
+
+        
+      
+        this.chatMessages = this.getMessageFeed().valueChanges();
+        
+     
+      
+        
+        //this.chatUsers.forEach (u => {
+        //   u.forEach (data => {
+        //     this.userNameStr = data.displayName;
+        //   })
+        //})
+        
       }
-
-      this.getUser().valueChanges().subscribe( a=> 
-        {
-         // this.userName = a.displayName;
-        });
+      //this.userName = this.userObj.displayName;
+      console.log('UserNameStr: ' + this.user.displayName);
       console.log('Called constructor!');
+      //console.log(this.userObj.displayName);
     });
-
   }
 
+  // gute referenz: https://grokonez.com/frontend/angular/angular-5-firebase-crud-operations-with-angularfire2-v5#2_Object
   // see https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
-  getUser()
-  {
-    //const userId = this.user.uid;
-    //const path = `/users/${userId}`;
+  // interessant: https://stackoverflow.com/questions/50506896/angular-6-rxjs-pipe-not-working-on-valuechanges
+  getUser() //:  User[]
+    {
+    const uid = this.user.uid;
 
-    return this.db.list('users');
+    //console.log("uid"+uid);
+
+    //const path = `/users/${uid}`;
+    //console.log("getUserFor");
+
+    // Solution?
+    // https://github.com/angular/angularfire2/issues/1209
+    var ab =  this.db.list<User>('/users', 
+      ref => ref.orderByChild("uid")
+      .limitToFirst(1)
+      .equalTo(uid)
+    )
+    .valueChanges().subscribe(data => {
+      this.userArray = data;
+      },error => {console.log(error)
+      }, () => {
+        console.log("done");
+      }
+    );
+
+    //return ab;
   }
 
   getUsers()
@@ -56,44 +94,59 @@ export class ChatService {
     return this.db.list(path);
   }
 
-  sendMessage(msg: string) {
-
+  // AngularFire List Doku
+  // https://github.com/angular/angularfire2/blob/master/docs/rtdb/lists.md
+  sendMessage(msg: string) 
+  {
     const timestamp = new Date(); //this.getTimeStamp();
     const email = this.user.email;
     const userName = this.userName;
-    // V3: // https://github.com/angular/angularfire2/issues/1180
-    this.chatMessagesRef.push({ 
-        message: msg,
-        timeSent: timestamp.toString(),
-        userName:  "karl", //this.userName,
-        email: email, 
-      }).then( () => {
-        console.log('push and then');
+    const uid = this.user.uid;
+
+
+    this.db.list<User>('/users', 
+      ref => ref.orderByChild("uid")
+      .limitToFirst(1)
+      .equalTo(uid)
+    )
+    .valueChanges().subscribe(data => {
+      data.forEach  ( x => {
+
+        if(x.uid === uid)
+        {
+          this.db.list('messages').push({ 
+            message: msg,
+            timeSent: timestamp.toString(),
+            userName:  x.displayName, //this.userName,
+            email: email, 
+          }).then( () => {
+            console.log('push and then');
+          });
+        }
+        else 
+        {
+          console.log("not equal");
+        }
+      }) ;
+      },error => {console.log(error)
+      }, () => {
+        console.log("done");
       }
+    );
 
-      );
-      // V4: ? https://stackoverflow.com/questions/14190268/is-push-currently-not-working-in-firebase-or-am-i-doing-something-wrong
-    console.log('Called sendMessage()!');
+
+
+    console.log('this.username' + this.userNameStr);
+    console.log('this.username' + this.userName);
+
+    
+    //console.log('Called sendMessage()!');
   }
 
-  getMessageFeed() : Observable<any> {
+  getMessageFeed(): AngularFireList<ChatMessage>
+  {
     // query to create our message feed binding
-    console.log('Called getMessageFeed()!');
-    return this.db.list('messages', ref => ref.limitToLast(25).orderByKey()).valueChanges();
+    //console.log('Called getMessageFeed()!');
+    return this.db.list('messages', ref => ref.limitToLast(25).orderByKey());
   }
-
-    //getTimeStamp():Date{
-  //  const now = new Date();
-  //  console.log(now);
-//
-  //  const date = now.getUTCFullYear() + '-'  + 
-  //              (now.getUTCMonth() +1) + '-'
-  //              now.getUTCDate();
-  //  const time = now.getUTCHours + ':'  + 
-  //              now.getUTCMinutes + ':'
-  //              now.getUTCSeconds;
-//
-  //  return new Date( date + ' ' + time);
-//
-  //}
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import  * as firebase from 'firebase/app';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
@@ -12,8 +12,9 @@ import { Observable } from 'rxjs';
 
 // more auth https://gist.github.com/codediodeio/5e02b605f2ab015f2fb1e60497bd46bf
 export class AuthService {
-
+  private UsersRef: AngularFireList<User>;
   private user: Observable<firebase.User>;
+  private userObject: firebase.User;
   private authState: any;
 
   constructor(
@@ -22,6 +23,13 @@ export class AuthService {
     private router: Router) 
     {
       this.user = afAuth.authState;
+
+      this.afAuth.authState.subscribe(auth => {
+        if( auth !== undefined && auth !== null)
+        {
+          this.userObject = auth;
+        }
+      });
     }
 
     get currentUserId(): string 
@@ -46,27 +54,56 @@ export class AuthService {
       return this.afAuth.auth.createUserWithEmailAndPassword
       (
         email,
-        password
+        password,
       ).then((user) => 
         {
           this.authState = user;
           const status = 'online';
-          this.setUserData(email, displayName, status);
-        }
+          this.setUserData(
+            email, 
+            displayName, 
+            status,
+            user.user.uid,
+          )}
       ).catch(error => console.log(error));
     }
 
-    setUserData(email: string, displayName: string, status: string): void 
+    setUserData(
+      email: string,
+      displayName: string, 
+      status: string,
+      userId: string): void 
     {
-      const path = `users/${this.currentUserId}`;
-      const data = {
-        email: email,
-        displayName: displayName,
-        status: status,
-      };
 
-      this.db.object(path).update(data)
-      .catch(error => console.log(error));
+      try {
+        const list = this.db.list('users');
+        list.push({ 
+          displayName: displayName,
+          email: email,
+          status: status,
+          uid: userId,
+        });
+        const list2 =  list.snapshotChanges();
+        list2.subscribe();
+
+        /* works ok:
+        const pushId = this.db.createPushId();
+        const item =  { 
+          displayName: displayName,
+          email: email,
+          status: status,
+          uid: userId,
+          id: pushId,
+          indexOn: "uid",
+        };
+
+        this.UsersRef.set(item.id, item);
+        */
+      }
+      catch(error)
+      { 
+        console.log(error)
+      } 
     } 
 
     setUserStatus(status: string): void 
@@ -75,5 +112,6 @@ export class AuthService {
       const data = {
         status: status
       }
+      this.db.object(path).update(data);
     }
 }

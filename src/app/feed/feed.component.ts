@@ -11,21 +11,17 @@ import { AngularFireList } from 'angularfire2/database';
 })
 export class FeedComponent implements OnInit {
   feedRef: AngularFireList<ChatMessage>;
-  feed: Observable<ChatMessage>
+  feed: Observable<ChatMessage[]>
 
   constructor(private chat: ChatService) {
 
    }
 
   ngOnInit() {
-
-    console.log('feed initializing!')
-
-    this.feed = this.chat.getMessageFeed();
+    this.feed = this.chat.getMessageFeed().valueChanges();
   }
 
   ngOnChanges() {
-    this.feed = this.chat.getMessageFeed();
-    //this.feed = this.chat.getMessages().subscribe(); // also possible
+    this.feed = this.chat.getMessageFeed().valueChanges();
   }
 }

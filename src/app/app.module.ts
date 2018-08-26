@@ -22,6 +22,11 @@ import { AuthService } from './services/auth.service';
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
 
+
+// Angular doku: 
+// https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
+
+// see https://github.com/wesdoyle/base-chat/tree/master/src/assets
 @NgModule({
   declarations: [
     AppComponent,
