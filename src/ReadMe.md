@@ -17,5 +17,5 @@ https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-
+"start": "ng serve",
   
