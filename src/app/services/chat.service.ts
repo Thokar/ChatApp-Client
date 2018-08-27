@@ -41,7 +41,6 @@ export class ChatService {
         this.chatMessages = this.getMessageFeed().valueChanges();
         
      
-      
         
         //this.chatUsers.forEach (u => {
         //   u.forEach (data => {
