@@ -22,6 +22,8 @@ import { AuthService } from './services/auth.service';
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
 
+//import { AngularFireOfflineModule } from 'angularfire2-offline';
+
 
 // Angular doku: 
 // https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
@@ -48,6 +50,7 @@ import { environment } from '../environments/environment';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    //AngularFireOfflineModule,
   ],
   providers: [AuthService, ChatService],
   bootstrap: [AppComponent]
