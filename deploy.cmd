@@ -104,8 +104,11 @@ goto :EOF
 :Deployment
 echo Handling node.js deployment.
 
+echo calling SelectNodeVersion
 :: 2. Select node version
 call :SelectNodeVersion
+
+echo calling SelectNodeVersion end
 
 
 :: 3. Install npm packages
@@ -129,7 +132,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
   popd
 )
 
-echo Run angular.json
+echo Run build angular.json
 IF EXIST "%DEPLOYMENT_SOURCE%/angular.json" (
   pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod
