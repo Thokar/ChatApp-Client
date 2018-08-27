@@ -93,6 +93,7 @@ echo Handling node.js deployment.
 :: 2. Select node version
 call :SelectNodeVersion
 
+echo Run package.json
 :: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
