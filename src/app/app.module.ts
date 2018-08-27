@@ -25,6 +25,12 @@ import { environment } from '../environments/environment';
 //import { AngularFireOfflineModule } from 'angularfire2-offline';
 
 
+// hosting in azure
+// https://www.newventuresoftware.com/blog/deploying-angular-4-cli-apps-to-iis-on-azure
+
+// Understanding the Angular CLI Workspace File
+// https://nitayneeman.com/posts/understanding-the-angular-cli-workspace-file/
+
 // Angular doku: 
 // https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
 
