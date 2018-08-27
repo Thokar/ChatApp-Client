@@ -93,29 +93,33 @@ echo Handling node.js deployment.
 :: 2. Select node version
 call :SelectNodeVersion
 
-echo Run package.json
+
 :: 3. Install npm packages
-IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
+IF EXIST "%DEPLOYMENT_TARGET%/package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   ::call :ExecuteCmd !NPM_CMD! install --production
+  echo Run package.json npm install
   call :ExecuteCmd !NPM_CMD! install 
+  ::call :ExecuteCmd !NPM_CMD! install @angular
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
 :: Building the Angular App
-IF EXIST "%DEPLOYMENT_SOURCE%\ClientApp\.angular-cli.json" (
-  pushd "%DEPLOYMENT_SOURCE%\ClientApp"
+IF EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
+  pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod
+  echo execute .angular-cli.json run build
   call :ExecuteCmd !NPM_CMD! run build 
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
 echo Run angular.json
-IF EXIST "%DEPLOYMENT_SOURCE%\ClientApp\angular.json" (
-  pushd "%DEPLOYMENT_SOURCE%\ClientApp"
+IF EXIST "%DEPLOYMENT_SOURCE%/angular.json" (
+  pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod
+  echo execute angular.json run build
   call :ExecuteCmd !NPM_CMD! run build 
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
