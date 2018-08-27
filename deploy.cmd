@@ -111,6 +111,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%\ClientApp\.angular-cli.json" (
   popd
 )
 
+echo Run angular.json
 IF EXIST "%DEPLOYMENT_SOURCE%\ClientApp\angular.json" (
   pushd "%DEPLOYMENT_SOURCE%\ClientApp"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod

@@ -31,6 +31,9 @@ import { environment } from '../environments/environment';
 // Understanding the Angular CLI Workspace File
 // https://nitayneeman.com/posts/understanding-the-angular-cli-workspace-file/
 
+// deploy to azure
+// https://myview.rahulnivi.net/build-deploy-angular-app-azure-via-kuduscriptgithub/
+
 // Angular doku: 
 // https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
 
