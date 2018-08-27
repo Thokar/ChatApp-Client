@@ -37,6 +37,9 @@ import { environment } from '../environments/environment';
 // Angular doku: 
 // https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
 
+// die richtige node version
+// https://stackoverflow.com/questions/49764571/how-to-upgrade-nodejs-version-on-azure
+
 // see https://github.com/wesdoyle/base-chat/tree/master/src/assets
 @NgModule({
   declarations: [
