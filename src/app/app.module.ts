@@ -40,6 +40,9 @@ import { environment } from '../environments/environment';
 // die richtige node version
 // https://stackoverflow.com/questions/49764571/how-to-upgrade-nodejs-version-on-azure
 
+// Angular is a static website!
+// https://stackoverflow.com/questions/45677959/how-to-run-ng-serve-command-in-kudu-console-to-make-azure-serve-my-angular-web
+
 // see https://github.com/wesdoyle/base-chat/tree/master/src/assets
 @NgModule({
   declarations: [
