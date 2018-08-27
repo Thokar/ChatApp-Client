@@ -48,16 +48,17 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
 
+echo node Version: 
 node -v 
-
-IF NOT DEFINED NODE_VERSION1 (
-  :: Install kudu sync
-  echo Updating node version
-  call npm install -g n
-  IF !ERRORLEVEL! NEQ 0 goto error
-
-  node -v
-)
+::
+::IF NOT DEFINED NODE_VERSION1 (
+::  :: Install kudu sync
+::  echo Updating node version
+::  call npm install -g n
+::  IF !ERRORLEVEL! NEQ 0 goto error
+::
+::  node -v
+::)
 
 
 goto Deployment
