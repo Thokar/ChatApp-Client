@@ -23,7 +23,6 @@ export class ChatService {
   userNameStr:string;
 
   userArray: User[];
-
  
   // https://dzone.com/articles/observables-with-the-angular-5
   // https://github.com/angular/angularfire2/issues/1220
