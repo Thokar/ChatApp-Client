@@ -36,7 +36,6 @@ export class ChatService {
       {
         this.user = auth;
 
-        
       
         this.chatMessages = this.getMessageFeed().valueChanges();
         
