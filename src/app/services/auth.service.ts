@@ -32,6 +32,10 @@ export class AuthService {
       });
     }
 
+    authUser() 
+    {
+      return this.user;
+    }
     get currentUserId(): string 
     {
       return this.authState !== null ? this.authState.uid: '';
@@ -83,8 +87,6 @@ export class AuthService {
           status: status,
           uid: userId,
         });
-        const list2 =  list.snapshotChanges();
-        list2.subscribe();
 
         /* works ok:
         const pushId = this.db.createPushId();
@@ -96,7 +98,6 @@ export class AuthService {
           id: pushId,
           indexOn: "uid",
         };
-
         this.UsersRef.set(item.id, item);
         */
       }
