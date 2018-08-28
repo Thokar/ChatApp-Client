@@ -72,6 +72,14 @@ export class AuthService {
       ).catch(error => console.log(error));
     }
 
+    logout()
+    {
+      this.afAuth.auth.signOut();
+      const status = 'offine';
+      this.setUserStatus(status);
+      this.router.navigate(['login']);
+    }
+
     setUserData(
       email: string,
       displayName: string, 
@@ -113,6 +121,7 @@ export class AuthService {
       const data = {
         status: status
       }
-      this.db.object(path).update(data);
+      this.db.object(path).update(data)
+      .catch(error => console.log(error));
     }
 }
