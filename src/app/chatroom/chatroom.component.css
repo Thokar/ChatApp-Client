@@ -1,8 +1,10 @@
-.mainContent {
+.mainContent 
+{
     display: flex;
 }
 
-.userListWrapper {
+.userListWrapper 
+{
     color: #fff;
     display: flex;
     font-family: "Open Sans", sans-serif;
@@ -14,7 +16,8 @@
     border-right: 1px solid #222;
 }
 
-.feedWrapper {
+.feedWrapper 
+{
     font-family: "Open Sans", sans-serif;
     font-size: 1.2em;
     flex: 5;
@@ -37,4 +40,9 @@
 {
     border-radius: 10px;
     background-color: #F5f5f5;
+}
+
+app-user-list 
+{
+    width: 100%;
 }
