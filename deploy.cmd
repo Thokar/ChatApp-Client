@@ -38,6 +38,15 @@ IF NOT DEFINED NEXT_MANIFEST_PATH (
   )
 )
 
+echo paths:
+
+echo TheDeploymentSource is %DEPLOYMENT_SOURCE%
+echo TheDeploymentTarget is %DEPLOYMENT_TARGET%
+echo TheDeploymentTemp is %DEPLOYMENT_TEMP%
+
+echo ls  
+ls -ls
+
 IF NOT DEFINED KUDU_SYNC_CMD (
   :: Install kudu sync
   echo Installing Kudu Sync
@@ -47,9 +56,6 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   :: Locally just running "kuduSync" would also work
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
-
-echo ls  
-ls -ls
 
 echo node Version: 
 node -v 
@@ -123,11 +129,9 @@ echo calling SelectNodeVersion end
 ::  popd
 ::)
 
-echo TheDeploymentSource is %DEPLOYMENT_SOURCE%
-
 :: Install npm packages from package.json
-IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
-  pushd "%DEPLOYMENT_SOURCE%"
+IF EXIST "%DEPLOYMENT_TARGET%/package.json" (
+  pushd "%DEPLOYMENT_TARGET%"
   ::call :ExecuteCmd !NPM_CMD! install --production
   echo Run package.json npm install from source
   call :ExecuteCmd !NPM_CMD! install 
