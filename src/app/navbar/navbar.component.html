@@ -2,7 +2,7 @@
  <div id="logo"></div>
   <div id="heading"><a routerLink="/">basechat</a></div>
   <div class="links">
-    <div *ngIf="(user | async); else notLoggedIn">
+    <div *ngIf="(!user | async); else notLoggedIn">
           <span>
               <span id="userEmail">Hello {{userEmail}}</span>
             </span>
@@ -20,7 +20,3 @@
       </ng-template>
   </div>
 </div>
-
-<!--<p>
-  navbar works!
-</p>-->

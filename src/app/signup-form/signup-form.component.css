@@ -73,3 +73,7 @@ a
 {
     font-size: 0.9em;
 }
+.errorMsg
+{
+    color: red;
+}

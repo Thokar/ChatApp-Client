@@ -21,6 +21,7 @@ export class MessageComponent implements OnInit {
 
   constructor(private authService: AuthService) 
   { 
+    console.log('ctor ChatMessage');
     authService.authUser().subscribe( user =>
     {
       this.ownEmail = user.email;
@@ -31,6 +32,7 @@ export class MessageComponent implements OnInit {
 
   ngOnInit(chatMessage = this.chatMessage) 
   {
+    console.log('ngOnInit ChatMessage');
     this.messageContent = chatMessage.message;
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;

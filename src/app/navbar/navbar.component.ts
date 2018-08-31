@@ -13,13 +13,25 @@ export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   userEmail: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) 
+  { 
+    console.log('Init Navbar');
+  }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    console.log('OnInit Navbar');
+
     this.user = this.authService.authUser();
     this.user.subscribe(user => {
-      this.userEmail = user.email;
+      if(!user)
+      {
+        this.userEmail = user.email;
+      }
+      
     });
+
+    console.log('OnInit Navbar - complete');
   }
 
   logout()

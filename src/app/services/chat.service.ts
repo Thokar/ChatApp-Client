@@ -29,24 +29,14 @@ export class ChatService {
   // https://stackoverflow.com/questions/48123366/how-i-can-call-observable-complete-callback-function-it-doesnt-work
   constructor(
     private db: AngularFireDatabase, 
-    private afAuth: AngularFireAuth,
-  ) { 
+    private afAuth: AngularFireAuth) 
+  { 
+    console.log("ChatService constructor called");
     this.afAuth.authState.subscribe(auth => {
       if( auth !== undefined && auth !== null)
       {
         this.user = auth;
-
-      
         this.chatMessages = this.getMessageFeed().valueChanges();
-        
-     
-        
-        //this.chatUsers.forEach (u => {
-        //   u.forEach (data => {
-        //     this.userNameStr = data.displayName;
-        //   })
-        //})
-        
       }
       //this.userName = this.userObj.displayName;
       console.log('UserNameStr: ' + this.user.displayName);
@@ -59,7 +49,8 @@ export class ChatService {
   // see https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
   // interessant: https://stackoverflow.com/questions/50506896/angular-6-rxjs-pipe-not-working-on-valuechanges
   getUser() //:  User[]
-    {
+  {
+    console.log("Get User called");
     const uid = this.user.uid;
 
     //console.log("uid"+uid);
@@ -81,7 +72,7 @@ export class ChatService {
         console.log("done");
       }
     );
-
+    console.log("Get User called - complete");
     //return ab;
   }
 

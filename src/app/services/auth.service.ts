@@ -22,6 +22,7 @@ export class AuthService {
     private db: AngularFireDatabase, 
     private router: Router) 
     {
+      console.log("check authState");
       this.user = afAuth.authState;
 
       this.afAuth.authState.subscribe(auth => {
@@ -31,7 +32,6 @@ export class AuthService {
         }
       });
     }
-
     authUser() 
     {
       return this.user;
@@ -40,7 +40,6 @@ export class AuthService {
     {
       return this.authState !== null ? this.authState.uid: '';
     }
-
     login(email: string, password: string)
     {
       return this.afAuth.auth.signInWithEmailAndPassword
@@ -52,7 +51,6 @@ export class AuthService {
         this.router.navigate(['chat']);
       })
     }
-
     signUp(email: string, password: string, displayName: string)
     {
       return this.afAuth.auth.createUserWithEmailAndPassword
@@ -71,7 +69,6 @@ export class AuthService {
           )}
       ).catch(error => console.log(error));
     }
-
     logout()
     {
       this.afAuth.auth.signOut();
@@ -79,14 +76,12 @@ export class AuthService {
       this.setUserStatus(status);
       this.router.navigate(['login']);
     }
-
     setUserData(
       email: string,
       displayName: string, 
       status: string,
       userId: string): void 
     {
-
       try {
         const list = this.db.list('users');
         list.push({ 
@@ -114,7 +109,6 @@ export class AuthService {
         console.log(error)
       } 
     } 
-
     setUserStatus(status: string): void 
     {
       const path = `users/${this.currentUserId}`;

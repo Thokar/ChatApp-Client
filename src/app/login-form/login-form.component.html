@@ -10,11 +10,12 @@
     name="password"
     class="formInput"/>
     <button class="btn"
+            type="submit" 
             id="btn-login"
             (click)="click()">
             Log In
     </button>
-    <label [(ngModel)]="errorMsg"></label>  
+    <label class="errorMsg" [(ngModel)]="errorMsg"></label>  
   </div>
 </div>
 <!--<p>
