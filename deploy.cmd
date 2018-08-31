@@ -127,7 +127,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
   pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod
   echo execute .angular-cli.json run build
-  call :ExecuteCmd !NPM_CMD! run build --prod
+  call :ExecuteCmd !NPM_CMD! run build
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
@@ -137,6 +137,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%/angular.json" (
   pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod
   echo execute angular.json run build
+  :: runs the build command ng build from package.json
   call :ExecuteCmd !NPM_CMD! run build 
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
