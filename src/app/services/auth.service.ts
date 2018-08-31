@@ -29,6 +29,8 @@ export class AuthService {
         if( auth !== undefined && auth !== null)
         {
           this.userObject = auth;
+          const status = 'online';
+          this.setUserStatus(status);
         }
       });
     }
@@ -48,9 +50,7 @@ export class AuthService {
 
       if(loginResult)
       {
-        const status = 'online';
-        this.setUserStatus(status);
-        //this.router.navigate(['chat']);
+        this.router.navigate(['chat']);
       }
       return loginResult;
     }
@@ -74,10 +74,10 @@ export class AuthService {
     }
     logout()
     {
-      this.afAuth.auth.signOut();
       const status = 'offine';
       this.setUserStatus(status);
-      //this.router.navigate(['login']);
+      this.afAuth.auth.signOut();
+      this.router.navigate(['login']);
     }
     setUserData(
       email: string,
