@@ -130,8 +130,8 @@ echo calling SelectNodeVersion end
 ::)
 
 :: Install npm packages from package.json
-IF EXIST "%DEPLOYMENT_TARGET%/package.json" (
-  pushd "%DEPLOYMENT_TARGET%"
+IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
+  pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd !NPM_CMD! install --production
   echo Run package.json npm install from source
   call :ExecuteCmd !NPM_CMD! install 
