@@ -27,6 +27,7 @@
     background:
     linear-gradient(181deg, rgba(100,200,255,0.6), rgba(0,0,0,0.9)),
     url('../../assets/img/photo_39871_20150806.jpg') center center no-repeat;;
+    background-size: 100%;
 }
 
 .chatFormWrapper {
