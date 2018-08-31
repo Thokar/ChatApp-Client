@@ -117,17 +117,17 @@ echo calling SelectNodeVersion end
 ::)
 
 :: Install npm packages from package.json
-IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
-  pushd "%DEPLOYMENT_SOURCE%"
+::IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
+::  pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd !NPM_CMD! install --production
-  echo Run package.json npm install from source
-  call :ExecuteCmd !NPM_CMD! install --production
-  call :ExecuteCmd !NPM_CMD! install @angular
+::  echo Run package.json npm install from source
+::  call :ExecuteCmd !NPM_CMD! install --production
+::  call :ExecuteCmd !NPM_CMD! install @angular
 
   ::call :ExecuteCmd !NPM_CMD! install @angular
-  IF !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
+::  IF !ERRORLEVEL! NEQ 0 goto error
+::  popd
+::)
 
 ::
 ::IF NOT DEFINED NODE_VERSION1 (
@@ -149,16 +149,16 @@ IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
 ::  popd
 ::)
 
-echo Run build angular.json
-IF EXIST "%DEPLOYMENT_SOURCE%/angular.json" (
-  pushd "%DEPLOYMENT_SOURCE%"
+::echo Run build angular.json
+::IF EXIST "%DEPLOYMENT_SOURCE%/angular.json" (
+::  pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd node_modules\.bin\ng build --progress false --prod
-  echo execute angular.json run build
+::  echo execute angular.json run build
   :: runs the build command ng build from package.json
-  call :ExecuteCmd !NPM_CMD! run build --prod
-  IF !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
+::  call :ExecuteCmd !NPM_CMD! run build --prod
+::  IF !ERRORLEVEL! NEQ 0 goto error
+::  popd
+::)
 
 :: KuduSync from source/dist to wwwroot
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
