@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
+
+// login example
+// https://github.com/FouomaOscar/firebase-authentication-with-angular-6/blob/master/src/app/core/auth.service.ts
 export class LoginFormComponent implements OnInit 
 {
   email: string;
@@ -23,10 +26,16 @@ export class LoginFormComponent implements OnInit
   login()
   {
     console.log('login() called from login-form component');
-    this.authService.login(this.email, this.password)
+    var cred = this.authService.login(this.email, this.password)
     .catch(error => {
       console.log(error.message);
-      this.errorMsg = error.message
+      this.errorMsg = error.message;
+      //this.router.navigate(['login']);
     });
+
+    if(cred)
+    {
+      this.router.navigate(['chat']);
+    }
   }
 }

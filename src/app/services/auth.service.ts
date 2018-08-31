@@ -48,10 +48,6 @@ export class AuthService {
       var loginResult =  this.afAuth.auth.signInWithEmailAndPassword
       (email, password);
 
-      if(loginResult)
-      {
-        this.router.navigate(['chat']);
-      }
       return loginResult;
     }
     signUp(email: string, password: string, displayName: string)
@@ -121,4 +117,78 @@ export class AuthService {
       this.db.object(path).update(data)
       .catch(error => console.log(error));
     }
+    doFacebookLogin(){
+      return new Promise<any>((resolve, reject) => {
+        let provider = new firebase.auth.FacebookAuthProvider();
+        this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+      })
+    }
+  
+    doTwitterLogin(){
+      return new Promise<any>((resolve, reject) => {
+        let provider = new firebase.auth.TwitterAuthProvider();
+        this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+      })
+    }
+  
+    doGoogleLogin(){
+      return new Promise<any>((resolve, reject) => {
+        let provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('profile');
+        provider.addScope('email');
+        this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+      })
+    }
+  
+    doRegister(value){
+      return new Promise<any>((resolve, reject) => {
+        firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+          resolve(res);
+        }, err => reject(err))
+      })
+    }
+  
+    doLogin(value){
+      return new Promise<any>((resolve, reject) => {
+        firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+          resolve(res);
+        }, err => reject(err))
+      })
+    }
+  
+    doLogout(){
+      return new Promise((resolve, reject) => {
+        if(firebase.auth().currentUser){
+          this.afAuth.auth.signOut()
+          resolve();
+        }
+        else{
+          reject();
+        }
+      });
+    }
+  
 }

@@ -53,11 +53,6 @@ export class ChatService {
     console.log("Get User called");
     const uid = this.user.uid;
 
-    //console.log("uid"+uid);
-
-    //const path = `/users/${uid}`;
-    //console.log("getUserFor");
-
     // Solution?
     // https://github.com/angular/angularfire2/issues/1209
     var ab =  this.db.list<User>('/users', 
@@ -73,7 +68,6 @@ export class ChatService {
       }
     );
     console.log("Get User called - complete");
-    //return ab;
   }
 
   getUsers()

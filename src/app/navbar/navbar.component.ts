@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   userEmail: string;
 
-  constructor(private authService: AuthService) 
+  constructor(private authService: AuthService, private router: Router) 
   { 
     console.log('Init Navbar');
   }
@@ -24,9 +25,15 @@ export class NavbarComponent implements OnInit {
 
     this.user = this.authService.authUser();
     this.user.subscribe(user => {
-      if(!user)
+      if(user)
       {
+        console.log('we have a user');
         this.userEmail = user.email;
+      }
+      else
+      {
+        console.log('no user');
+        this.router.navigate(['login']);
       }
       
     });
