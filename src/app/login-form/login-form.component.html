@@ -1,3 +1,23 @@
-<p>
+<div class="loginContainer">
+  <div class="loginCard">
+    <h2 class="loginHeading"></h2>
+    <input [(ngModel)]="email"
+    type="email"
+    name="email"
+    class="formInput"/>
+    <input [(ngModel])="password"
+    type="password"
+    name="password"
+    class="formInput"/>
+    <button class="btn"
+            id="btn-login"
+            (click)="click()">
+            Log In
+    </button>
+    <label [(ngModel)]="errorMsg"></label>  
+  </div>
+</div>
+<!--<p>
   login-form works!
 </p>
+-->
