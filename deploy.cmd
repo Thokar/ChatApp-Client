@@ -48,6 +48,9 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
 
+echo ls  
+ls -ls
+
 echo node Version: 
 node -v 
 ::
