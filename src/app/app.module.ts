@@ -24,6 +24,9 @@ import { environment } from '../environments/environment';
 
 //import { AngularFireOfflineModule } from 'angularfire2-offline';
 
+// Build and Deploy Angular App to Azure from Github via KuduScript
+// https://myview.rahulnivi.net/build-deploy-angular-app-azure-via-kuduscriptgithub/
+
 // Deploying Your Angular Application To Azure
 // https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
 
