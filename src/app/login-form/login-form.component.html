@@ -1,5 +1,6 @@
 <div class="loginContainer">
   <div class="loginCard">
+    <form #loginForm="ngForm">
     <h2 class="loginHeading"></h2>
     <input [(ngModel)]="email"
     type="email"
@@ -16,6 +17,7 @@
             Log In
     </button>
     <label class="errorMsg" [(ngModel)]="errorMsg"></label>  
+    </form>
   </div>
 </div>
 <!--<p>
