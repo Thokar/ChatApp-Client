@@ -24,6 +24,8 @@ import { environment } from '../environments/environment';
 
 //import { AngularFireOfflineModule } from 'angularfire2-offline';
 
+// Deploying Your Angular Application To Azure
+// https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
 
 // hosting in azure
 // https://www.newventuresoftware.com/blog/deploying-angular-4-cli-apps-to-iis-on-azure
