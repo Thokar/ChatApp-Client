@@ -20,3 +20,10 @@ https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
 "start": "ng serve",
   
 "build": "ng build --prod",
+
+
+packages.json, specify node version
+,
+  "engines": {
+    "node": "8.9.4"
+}

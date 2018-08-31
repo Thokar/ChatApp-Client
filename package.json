@@ -80,8 +80,5 @@
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "typescript": "~2.7.2"
-  },
-  "engines": {
-    "node": "8.9.4"
-}
+  }
 }
