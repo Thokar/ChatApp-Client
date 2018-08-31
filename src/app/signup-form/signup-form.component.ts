@@ -27,9 +27,9 @@ export class SignupFormComponent implements OnInit {
     password, 
     displayName).catch(error => this.errorMsg = error.message);
 
-    if(result !== null)
+    if(result)
     {
-      //this.router.navigate(['chat']);
+      this.router.navigate(['chat']);
     }
   }
 
