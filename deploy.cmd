@@ -54,7 +54,7 @@ node -v
 ::IF NOT DEFINED NODE_VERSION1 (
 ::  :: Install kudu sync
 ::  echo Updating node version
-::  call npm install -g n
+call npm install -g n
 ::  IF !ERRORLEVEL! NEQ 0 goto error
 ::
 ::  node -v
