@@ -56,16 +56,6 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 
 echo node Version: 
 node -v 
-::
-::IF NOT DEFINED NODE_VERSION1 (
-::  :: Install kudu sync
-::  echo Updating node version
-::call npm install -g n
-::  IF !ERRORLEVEL! NEQ 0 goto error
-::
-::  node -v
-::)
-
 
 goto Deployment
 
@@ -132,10 +122,22 @@ IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
   ::call :ExecuteCmd !NPM_CMD! install --production
   echo Run package.json npm install from source
   call :ExecuteCmd !NPM_CMD! install --production
+  call :ExecuteCmd !NPM_CMD! install @angular
+
   ::call :ExecuteCmd !NPM_CMD! install @angular
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
+
+::
+::IF NOT DEFINED NODE_VERSION1 (
+::  :: Install kudu sync
+::  echo Updating node version
+::call npm install -g n
+::  IF !ERRORLEVEL! NEQ 0 goto error
+::
+::  node -v
+::)
 
 :: Building the Angular App
 ::IF EXIST "%DEPLOYMENT_SOURCE%/.angular-cli.json" (
