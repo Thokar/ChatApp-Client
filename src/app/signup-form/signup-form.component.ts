@@ -29,7 +29,7 @@ export class SignupFormComponent implements OnInit {
 
     if(result !== null)
     {
-      this.router.navigate(['chat']);
+      //this.router.navigate(['chat']);
     }
   }
 

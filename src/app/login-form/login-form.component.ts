@@ -24,6 +24,9 @@ export class LoginFormComponent implements OnInit
   {
     console.log('login() called from login-form component');
     this.authService.login(this.email, this.password)
-    .catch(error => this.errorMsg = error.message);
+    .catch(error => {
+      console.log(error.message);
+      this.errorMsg = error.message
+    });
   }
 }
