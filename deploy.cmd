@@ -44,9 +44,6 @@ echo TheDeploymentSource is %DEPLOYMENT_SOURCE%
 echo TheDeploymentTarget is %DEPLOYMENT_TARGET%
 echo TheDeploymentTemp is %DEPLOYMENT_TEMP%
 
-echo ls  
-ls -ls
-
 IF NOT DEFINED KUDU_SYNC_CMD (
   :: Install kudu sync
   echo Installing Kudu Sync
@@ -134,7 +131,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
   pushd "%DEPLOYMENT_SOURCE%"
   ::call :ExecuteCmd !NPM_CMD! install --production
   echo Run package.json npm install from source
-  call :ExecuteCmd !NPM_CMD! install 
+  call :ExecuteCmd !NPM_CMD! install --production
   ::call :ExecuteCmd !NPM_CMD! install @angular
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
