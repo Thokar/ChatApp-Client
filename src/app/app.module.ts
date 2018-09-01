@@ -24,6 +24,13 @@ import { environment } from '../environments/environment';
 
 //import { AngularFireOfflineModule } from 'angularfire2-offline';
 
+
+// Save install
+// https://github.com/angular/angular-cli/issues/8798s
+
+// deployment preinstall
+// https://stackoverflow.com/questions/47185611/versions-of-angular-compiler-cli-and-typescript-could-not-be-determined#
+
 // firebase-authentication-with-angular-6 
 // https://github.com/FouomaOscar/firebase-authentication-with-angular-6
 
@@ -52,6 +59,7 @@ import { environment } from '../environments/environment';
 // https://stackoverflow.com/questions/45677959/how-to-run-ng-serve-command-in-kudu-console-to-make-azure-serve-my-angular-web
 
 // see https://github.com/wesdoyle/base-chat/tree/master/src/assets
+
 @NgModule({
   declarations: [
     AppComponent,
