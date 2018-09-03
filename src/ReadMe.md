@@ -39,6 +39,9 @@ npm install angularfire2-offline
 
 // see https://github.com/wesdoyle/base-chat/tree/master/src/assets
 
+// Images for website and App
+// https://www.pexels.com/photo/botanical-cactus-close-up-decor-305821/
+
 // Angualr Kanban
 // https://github.com/DlhSoftTeam/Angular-Kanban
 
