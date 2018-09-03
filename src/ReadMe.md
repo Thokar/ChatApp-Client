@@ -45,6 +45,9 @@ npm install angularfire2-offline
 // Angualr Kanban
 // https://github.com/DlhSoftTeam/Angular-Kanban
 
+// forms module
+// https://stackoverflow.com/questions/39152071/cant-bind-to-formgroup-since-it-isnt-a-known-property-of-form
+
 //////////////////////////////////////////////////////////
 /// deployment
 https://stackoverflow.com/questions/46930364/deploy-default-angular-application-on-azure-from-github-gives-error
