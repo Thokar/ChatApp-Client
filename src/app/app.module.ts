@@ -19,46 +19,15 @@ import { ChatFormComponent } from './chat-form/chat-form.component';
 
 import { ChatService } from './services/chat.service';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { AuthGuardService } from './services/authGuard.service';
+import { UserResolverService } from './services/userResolver.service';
+
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
+import { UserComponent } from './user/user.component';
 
 //import { AngularFireOfflineModule } from 'angularfire2-offline';
-
-
-// Save install
-// https://github.com/angular/angular-cli/issues/8798s
-
-// deployment preinstall
-// https://stackoverflow.com/questions/47185611/versions-of-angular-compiler-cli-and-typescript-could-not-be-determined#
-
-// firebase-authentication-with-angular-6 
-// https://github.com/FouomaOscar/firebase-authentication-with-angular-6
-
-// Build and Deploy Angular App to Azure from Github via KuduScript
-// https://myview.rahulnivi.net/build-deploy-angular-app-azure-via-kuduscriptgithub/
-
-// Deploying Your Angular Application To Azure
-// https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
-
-// hosting in azure
-// https://www.newventuresoftware.com/blog/deploying-angular-4-cli-apps-to-iis-on-azure
-
-// Understanding the Angular CLI Workspace File
-// https://nitayneeman.com/posts/understanding-the-angular-cli-workspace-file/
-
-// deploy to azure
-// https://myview.rahulnivi.net/build-deploy-angular-app-azure-via-kuduscriptgithub/
-
-// Angular doku: 
-// https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
-
-// die richtige node version
-// https://stackoverflow.com/questions/49764571/how-to-upgrade-nodejs-version-on-azure
-
-// Angular is a static website!
-// https://stackoverflow.com/questions/45677959/how-to-run-ng-serve-command-in-kudu-console-to-make-azure-serve-my-angular-web
-
-// see https://github.com/wesdoyle/base-chat/tree/master/src/assets
 
 @NgModule({
   declarations: [
@@ -71,11 +40,12 @@ import { environment } from '../environments/environment';
     NavbarComponent,
     UserListComponent,
     UserItemComponent,
-    ChatFormComponent
+    ChatFormComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: false }),
     FormsModule,
     AngularFireModule,
     AngularFireDatabaseModule,
@@ -83,7 +53,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     //AngularFireOfflineModule,
   ],
-  providers: [AuthService, ChatService],
+  providers: [AuthService, ChatService, UserService, AuthGuardService, UserResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

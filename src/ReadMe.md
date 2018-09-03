@@ -1,13 +1,51 @@
-ReadMe
-
+///////////////////////////////////////////////////////////
+/// packages
 npm install angularfire2-offline
 
+////////////////////////////////////////////////////////
+/// Usefull weblinks
+// Save install
+// https://github.com/angular/angular-cli/issues/8798s
+
+// deployment preinstall
+// https://stackoverflow.com/questions/47185611/versions-of-angular-compiler-cli-and-typescript-could-not-be-determined#
+
+// firebase-authentication-with-angular-6 
+// https://github.com/FouomaOscar/firebase-authentication-with-angular-6
+
+// Build and Deploy Angular App to Azure from Github via KuduScript
+// https://myview.rahulnivi.net/build-deploy-angular-app-azure-via-kuduscriptgithub/
+
+// Deploying Your Angular Application To Azure
+// https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
+
+// hosting in azure
+// https://www.newventuresoftware.com/blog/deploying-angular-4-cli-apps-to-iis-on-azure
+
+// Understanding the Angular CLI Workspace File
+// https://nitayneeman.com/posts/understanding-the-angular-cli-workspace-file/
+
+// deploy to azure
+// https://myview.rahulnivi.net/build-deploy-angular-app-azure-via-kuduscriptgithub/
+
+// Angular doku: 
+// https://github.com/angular/angularfire2/blob/master/docs/version-5-upgrade.md
+
+// die richtige node version
+// https://stackoverflow.com/questions/49764571/how-to-upgrade-nodejs-version-on-azure
+
+// Angular is a static website!
+// https://stackoverflow.com/questions/45677959/how-to-run-ng-serve-command-in-kudu-console-to-make-azure-serve-my-angular-web
+
+// see https://github.com/wesdoyle/base-chat/tree/master/src/assets
+
+//////////////////////////////////////////////////////////
+/// deployment
 https://stackoverflow.com/questions/46930364/deploy-default-angular-application-on-azure-from-github-gives-error
 
 https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
 
-
-
+/// deployment settings
  "scripts": {
     "ng": "ng",
     "prestart": "ng build --prod",
@@ -21,13 +59,11 @@ https://dotnetthoughts.net/deploying-your-angular-app-to-azure/
   
 "build": "ng build --prod",
 
-
 packages.json, specify node version
 ,
   "engines": {
     "node": "8.9.4"
 }
-
 
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",

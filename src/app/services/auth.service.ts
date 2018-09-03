@@ -34,6 +34,8 @@ export class AuthService {
         }
       });
     }
+
+    // Legacy API
     authUser() 
     {
       return this.user;
@@ -117,6 +119,8 @@ export class AuthService {
       this.db.object(path).update(data)
       .catch(error => console.log(error));
     }
+
+    // New API for Angular 6
     doFacebookLogin(){
       return new Promise<any>((resolve, reject) => {
         let provider = new firebase.auth.FacebookAuthProvider();
