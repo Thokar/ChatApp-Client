@@ -22,9 +22,9 @@
               (click)="tryLogin(loginForm.value)">
               Log In
       </button>
-      <label class="errorMsg" [(ngModel)]="errorMsg"></label>
-    </form>
 
+    </form>
+       <label class="errorMsg" [(ngModel)]="errorMsg"></label> <!-- nnModel cannot be used in a form-->
         <button type="button" class="btn" (click)="tryFacebookLogin()">Login with Facebook</button>
 
 
