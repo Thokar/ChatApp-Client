@@ -39,6 +39,9 @@ npm install angularfire2-offline
 
 // see https://github.com/wesdoyle/base-chat/tree/master/src/assets
 
+// Angualr Kanban
+// https://github.com/DlhSoftTeam/Angular-Kanban
+
 //////////////////////////////////////////////////////////
 /// deployment
 https://stackoverflow.com/questions/46930364/deploy-default-angular-application-on-azure-from-github-gives-error

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -12,30 +13,76 @@ import { Router } from '@angular/router';
 // https://github.com/FouomaOscar/firebase-authentication-with-angular-6/blob/master/src/app/core/auth.service.ts
 export class LoginFormComponent implements OnInit 
 {
-  email: string;
-  password: string;
+  loginForm: FormGroup;
+  //email: string; //depricated
+  //password: string; //depricated
   errorMsg: string;
 
-  constructor(private authService: AuthService, private router: Router) 
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private fb: FormBuilder) 
   { 
+    this.createForm();
   }
   ngOnInit() 
   {
     console.log('ngOnInit LoginFormComponent');
   }
-  login()
-  {
-    console.log('login() called from login-form component');
-    var cred = this.authService.login(this.email, this.password)
-    .catch(error => {
-      console.log(error.message);
-      this.errorMsg = error.message;
-      //this.router.navigate(['login']);
-    });
 
-    if(cred)
+  // depricated
+  //login()
+  //{
+  //  console.log('login() called from login-form component');
+  //  var cred = this.authService.login(this.email, this.password)
+  //  .catch(error => {
+  //    console.log(error.message);
+  //    this.errorMsg = error.message;
+  //    //this.router.navigate(['login']);
+  //  });
+//
+  //  if(cred)
+  //  {
+  //    this.router.navigate(['chat']);
+  //  }
+  //}
+  createForm()
+  {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required ],
+      password: ['', Validators.required ]
+    });
+  }
+  tryFacebookLogin()
+  {
+    this.authService.doFacebookLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    });
+  }
+  tryTwitterLogin()
+  {
+    this.authService.doTwitterLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    });
+  }
+  tryGoogleLogin()
+  {
+    this.authService.doGoogleLogin()
+    .then(res => {
+      this.router.navigate(['/user']);
+    });
+  }
+  tryLogin(value)
+  {
+    this.authService.doLogin(value)
+    .then(res => 
     {
-      this.router.navigate(['chat']);
-    }
+      this.router.navigate(['/user']);
+    }, err => {
+      console.log(err);
+      this.errorMsg = err.message;
+    });
   }
 }

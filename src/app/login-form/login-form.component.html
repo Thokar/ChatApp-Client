@@ -1,22 +1,48 @@
 <div class="loginContainer">
   <div class="loginCard">
     <h2 class="loginHeading">Log In</h2>
-    <input [(ngModel)]="email"
-    type="email"
-    name="email"
-    class="loginFormInput"
-    required/>
-    <input [(ngModel)]="password"
-    type="password"
-    name="password"
-    class="loginFormInput"
-    required />
-   <button class="btn"
-            type="submit" 
-            id="btn-login"
-            (click)="login()">
-            Log In
-    </button>
-   <label class="errorMsg" [(ngModel)]="errorMsg"></label>
+    <form [formGroup]="loginForm">
+      <!-- old binding  [(ngModel)]="email" -->
+      <input
+      type="email"
+      formControlName="email"
+      name="email"
+      class="loginFormInput"
+      required/>
+      <!-- old binding  [(ngModel)]="password"-->
+      <input
+      type="password"
+      formControlName="password"
+      name="password"
+      class="loginFormInput"
+      required />
+      <button class="btn"
+              type="submit" 
+              id="btn-login"
+              (click)="tryLogin(loginFrom.value)">
+              Log In
+      </button>
+      <label class="errorMsg" [(ngModel)]="errorMsg"></label>
+    </form>
   </div>
+  <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Login with Facebook</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Login with Google</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <button type="button" class="btn btn-info btn-block" (click)="tryTwitterLogin()">Login with Twitter</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <p>No account yet? <a href="/register">Create an account</a></p>
+      </div>
+    </div>
 </div>
