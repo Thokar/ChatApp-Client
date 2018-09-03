@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-signup-form',
@@ -34,6 +35,15 @@ export class SignupFormComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  doRegister(value){
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+      .then(res => {
+        resolve(res);
+      }, err => reject(err))
+    })
   }
 
 }

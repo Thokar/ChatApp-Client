@@ -26,6 +26,10 @@
       </button>
       <label class="errorMsg" [(ngModel)]="errorMsg"></label>  
     </form>
+          <button type="button" class="btn " (click)="tryFacebookLogin()">Register with Facebook</button>
+          <button type="button" class="btn" (click)="tryGoogleLogin()">Register with Google</button>
+          <button type="button" class="btn" (click)="tryTwitterLogin()">Register with Twitter</button>
+          <p>Already have an account? <a href="/login">Login</a></p>
   </div>
 </div>
 
