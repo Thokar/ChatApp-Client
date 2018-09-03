@@ -27,7 +27,7 @@ import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
 import { UserComponent } from './user/user.component';
 
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { ReactiveFormsModule  } from '@angular/forms';
 
 //import { AngularFireOfflineModule } from 'angularfire2-offline';
 
@@ -47,6 +47,7 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { useHash: false }),
     FormsModule,
     AngularFireModule,
@@ -54,9 +55,6 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     //AngularFireOfflineModule,
-    FormBuilder,
-    FormGroup,
-    Validators
   ],
   providers: [AuthService, ChatService, UserService, AuthGuardService, UserResolverService],
   bootstrap: [AppComponent]
