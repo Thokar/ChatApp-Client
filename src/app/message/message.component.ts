@@ -32,7 +32,7 @@ export class MessageComponent implements OnInit {
     //})
 
     var user = userService.getCurrentUser();
-    //this.ownEmail = user.;
+    //this.ownEmail = user.email;
 
   }
 
