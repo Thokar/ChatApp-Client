@@ -14,7 +14,7 @@ export class SignupFormComponent implements OnInit {
   //email: string;
   //password: string;
   //displayName: string;
-  registerFrom: FormGroup;
+  registerForm: FormGroup;
   errorMsg: string;
   successMsg: string;
   
@@ -26,35 +26,32 @@ export class SignupFormComponent implements OnInit {
   { 
     this.createForm();
   }
-
   // legacy code
   //signUp() {
   //  const email = this.email;
   //  const password = this.password;
   //  const displayName = this.displayName;
-//
+  //
   //var result = this.authService.signUp(
   //  email, 
   //  password, 
   //  displayName).catch(error => this.errorMsg = error.message);
-//
+  //
   //  if(result)
   //  {
   //    this.router.navigate(['chat']);
   //  }
   //}
-
-  ngOnInit() {
+  ngOnInit() 
+  {
   }
-
   createForm()
   {
-    this.registerFrom = this.fb.group({
+    this.registerForm = this.fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
-    }
-
-    )
+      password: ['', Validators.required],
+      displayName: ['', Validators.required]
+    });
   }
   tryRegister(value)
   {
@@ -73,7 +70,7 @@ export class SignupFormComponent implements OnInit {
   {
     this.authService.doFacebookLogin()
     .then(res =>{
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     }, err => console.log(err)
     )
   }
@@ -81,7 +78,7 @@ export class SignupFormComponent implements OnInit {
   {
     this.authService.doTwitterLogin()
     .then(res =>{
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     }, err => console.log(err)
     )
   }
@@ -89,7 +86,7 @@ export class SignupFormComponent implements OnInit {
   {
     this.authService.doGoogleLogin()
     .then(res =>{
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     }, err => console.log(err)
     )
   }

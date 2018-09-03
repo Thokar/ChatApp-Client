@@ -1,6 +1,9 @@
 <div class="container">
   <div class="signUpCard">
     <!-- <form #signUpForm="ngForm">-->
+      <!-- article about form Group 
+        https://toddmotto.com/reactive-formgroup-validation-angular-2
+      -->
     <form [formGroup]="registerForm">
       <h2 class="heading">Sign Up</h2>
       
@@ -26,8 +29,8 @@
         formControlName="displayName"
         class="formInput"
         maxlength="12" required />
-      <button [disabled]="!signUpForm.form.valid"
-          type="submit" (click)="tryRegister()"
+      <button [disabled]="!registerForm.valid"
+          type="submit" (click)="tryRegister(registerForm.value)"
           class="btn" id="btn-signUp">
           Sign Up
       </button>
@@ -35,10 +38,13 @@
       <label class="errorMsg">{{errorMsg}}</label>
       <label class="success">{{successMsg}}</label>
     </form>
-          <button type="button" class="btn " (click)="tryFacebookLogin()">Register with Facebook</button>
+  <div>
+          <!--<button type="button" class="btn " (click)="tryFacebookLogin()">Register with Facebook</button>
           <button type="button" class="btn" (click)="tryGoogleLogin()">Register with Google</button>
           <button type="button" class="btn" (click)="tryTwitterLogin()">Register with Twitter</button>
+          -->
           <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
   </div>
 </div>
 

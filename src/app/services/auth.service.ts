@@ -30,98 +30,99 @@ export class AuthService {
         {
           this.userObject = auth;
           const status = 'online';
-          this.setUserStatus(status);
+          //this.setUserStatus(status);
         }
       });
     }
 
     // Legacy API
-    authUser() 
-    {
-      return this.user;
-    }
-    get currentUserId(): string 
-    {
-      return this.authState !== null ? this.authState.uid: '';
-    }
-    login(email: string, password: string)
-    {
-      console.log('login');
-      var loginResult =  this.afAuth.auth.signInWithEmailAndPassword
-      (email, password);
-
-      return loginResult;
-    }
-    signUp(email: string, password: string, displayName: string)
-    {
-      return this.afAuth.auth.createUserWithEmailAndPassword
-      (
-        email,
-        password,
-      ).then((user) => 
-        {
-          this.authState = user;
-          const status = 'online';
-          this.setUserData(
-            email, 
-            displayName, 
-            status,
-            user.user.uid,
-          )}
-      ).catch(error => console.log(error));
-    }
-    logout()
-    {
-      const status = 'offine';
-      this.setUserStatus(status);
-      this.afAuth.auth.signOut();
-      this.router.navigate(['login']);
-    }
-    setUserData(
-      email: string,
-      displayName: string, 
-      status: string,
-      userId: string): void 
-    {
-      try {
-        const list = this.db.list('users');
-        list.push({ 
-          displayName: displayName,
-          email: email,
-          status: status,
-          uid: userId,
-        });
-
-        /* works ok:
-        const pushId = this.db.createPushId();
-        const item =  { 
-          displayName: displayName,
-          email: email,
-          status: status,
-          uid: userId,
-          id: pushId,
-          indexOn: "uid",
-        };
-        this.UsersRef.set(item.id, item);
-        */
-      }
-      catch(error)
-      { 
-        console.log(error)
-      } 
-    } 
-    setUserStatus(status: string): void 
-    {
-      const path = `users/${this.currentUserId}`;
-      const data = {
-        status: status
-      }
-      this.db.object(path).update(data)
-      .catch(error => console.log(error));
-    }
+    //authUser() 
+    //{
+    //  return this.user;
+    //}
+    //get currentUserId(): string 
+    //{
+    //  return this.authState !== null ? this.authState.uid: '';
+    //}
+    //login(email: string, password: string)
+    //{
+    //  console.log('login');
+    //  var loginResult =  this.afAuth.auth.signInWithEmailAndPassword
+    //  (email, password);
+//
+    //  return loginResult;
+    //}
+    //signUp(email: string, password: string, displayName: string)
+    //{
+    //  return this.afAuth.auth.createUserWithEmailAndPassword
+    //  (
+    //    email,
+    //    password,
+    //  ).then((user) => 
+    //    {
+    //      this.authState = user;
+    //      const status = 'online';
+    //      this.setUserData(
+    //        email, 
+    //        displayName, 
+    //        status,
+    //        user.user.uid,
+    //      )}
+    //  ).catch(error => console.log(error));
+    //}
+    //logout()
+    //{
+    //  const status = 'offine';
+    //  this.setUserStatus(status);
+    //  this.afAuth.auth.signOut();
+    //  //this.router.navigate(['login']);
+    //}
+    //setUserData(
+    //  email: string,
+    //  displayName: string, 
+    //  status: string,
+    //  userId: string): void 
+    //{
+    //  try {
+    //    const list = this.db.list('users');
+    //    list.push({ 
+    //      displayName: displayName,
+    //      email: email,
+    //      status: status,
+    //      uid: userId,
+    //    });
+//
+    //    /* works ok:
+    //    const pushId = this.db.createPushId();
+    //    const item =  { 
+    //      displayName: displayName,
+    //      email: email,
+    //      status: status,
+    //      uid: userId,
+    //      id: pushId,
+    //      indexOn: "uid",
+    //    };
+    //    this.UsersRef.set(item.id, item);
+    //    */
+    //  }
+    //  catch(error)
+    //  { 
+    //    console.log(error)
+    //  } 
+    //} 
+    //setUserStatus(status: string): void 
+    //{
+    //  const path = `users/${this.currentUserId}`;
+    //  const data = {
+    //    status: status
+    //  }
+    //  this.db.object(path).update(data)
+    //  .catch(error => console.log(error));
+    //}
 
     // New API for Angular 6
-    doFacebookLogin(){
+    doFacebookLogin()
+    {
       return new Promise<any>((resolve, reject) => {
         let provider = new firebase.auth.FacebookAuthProvider();
         this.afAuth.auth
@@ -134,8 +135,8 @@ export class AuthService {
         })
       })
     }
-  
-    doTwitterLogin(){
+    doTwitterLogin()
+    {
       return new Promise<any>((resolve, reject) => {
         let provider = new firebase.auth.TwitterAuthProvider();
         this.afAuth.auth
@@ -148,8 +149,8 @@ export class AuthService {
         })
       })
     }
-  
-    doGoogleLogin(){
+    doGoogleLogin()
+    {
       return new Promise<any>((resolve, reject) => {
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('profile');
@@ -164,8 +165,8 @@ export class AuthService {
         })
       })
     }
-  
-    doRegister(value){
+    doRegister(value)
+    {
       return new Promise<any>((resolve, reject) => {
         firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then(res => {
@@ -173,17 +174,21 @@ export class AuthService {
         }, err => reject(err))
       })
     }
-  
-    doLogin(value){
+    doLogin(value)
+    {
+      console.log('doLogin');
       return new Promise<any>((resolve, reject) => {
         firebase.auth().signInWithEmailAndPassword(value.email, value.password)
         .then(res => {
           resolve(res);
-        }, err => reject(err))
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
       })
     }
-  
-    doLogout(){
+    doLogout()
+    {
       return new Promise((resolve, reject) => {
         if(firebase.auth().currentUser){
           this.afAuth.auth.signOut()
@@ -194,5 +199,4 @@ export class AuthService {
         }
       });
     }
-  
 }

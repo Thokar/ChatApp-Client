@@ -24,21 +24,15 @@
       </button>
 
     </form>
-       <label class="errorMsg" [(ngModel)]="errorMsg"></label> <!-- nnModel cannot be used in a form-->
-        <button type="button" class="btn" (click)="tryFacebookLogin()">Login with Facebook</button>
-
-
-   
+        <!-- nnModel cannot be used in a form-->
+        <!--<label class="errorMsg" [(ngModel)]="errorMsg"></label> -->
+        <label class="errorMsg">{{ errorMsg }}</label>
+       <!-- <button type="button" class="btn" (click)="tryFacebookLogin()">Login with Facebook</button>
         <button type="button" class="btn" (click)="tryGoogleLogin()">Login with Google</button>
-
-
-
         <button type="button" class="btn" (click)="tryTwitterLogin()">Login with Twitter</button>
-
-
+       -->
       <div>
         <p>No account yet? <a href="/register">Create an account</a></p>
       </div>
-    </div>
   </div>
 </div>

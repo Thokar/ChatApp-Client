@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +12,14 @@ import * as firebase from 'firebase/app';
 })
 export class NavbarComponent implements OnInit {
 
-  user: Observable<firebase.User>;
+  //user: Observable<firebase.User>;
+  user: Promise<any>;
   userEmail: string;
 
-  constructor(private authService: AuthService, private router: Router) 
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private userService: UserService) 
   { 
     console.log('Init Navbar');
   }
@@ -23,27 +28,28 @@ export class NavbarComponent implements OnInit {
   {
     console.log('OnInit Navbar');
 
-    this.user = this.authService.authUser();
-    this.user.subscribe(user => {
-      if(user)
-      {
-        console.log('we have a user');
-        this.userEmail = user.email;
-      }
-      else
-      {
-        console.log('no user');
-        this.router.navigate(['login']);
-      }
-      
-    });
+    this.user = this.userService.getCurrentUser();
+    //this.user.subscribe(user => {
+    //  if(user)
+    //  {
+    //    console.log('we have a user');
+    //    this.userEmail = user.email;
+    //  }
+    //  else
+    //  {
+    //    console.log('no user');
+    //    //this.router.navigate(['login']);
+    //  }
+    //  
+    //});
 
     console.log('OnInit Navbar - complete');
   }
 
   logout()
   {
-    this.authService.logout();
+    console.log('logout');
+    this.authService.doLogout();
   }
 
   login()

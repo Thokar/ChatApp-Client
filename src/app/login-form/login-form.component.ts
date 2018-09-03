@@ -57,29 +57,30 @@ export class LoginFormComponent implements OnInit
   {
     this.authService.doFacebookLogin()
     .then(res => {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     });
   }
   tryTwitterLogin()
   {
     this.authService.doTwitterLogin()
     .then(res => {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     });
   }
   tryGoogleLogin()
   {
     this.authService.doGoogleLogin()
     .then(res => {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     });
   }
   tryLogin(value)
   {
+    console.log('tryLogin');
     this.authService.doLogin(value)
     .then(res => 
     {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/chat']);
     }, err => {
       console.log(err);
       this.errorMsg = err.message;

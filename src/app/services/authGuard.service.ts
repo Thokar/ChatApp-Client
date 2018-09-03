@@ -21,8 +21,9 @@ export class AuthGuardService implements CanActivate {
     {
       this.userService.getCurrentUser()
       .then( user => {
-        this.router.navigate(['/user']);
-        return resolve(false);
+        console.log('AuthguardCanActivate')
+        //this.router.navigate(['/chat']);
+        return resolve(true);
       }, err =>  {
         return resolve(true);
       })

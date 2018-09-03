@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { AuthService } from '../services/auth.service';
 import { ChatMessage } from '../models/chat-message.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-message',
@@ -19,14 +20,19 @@ export class MessageComponent implements OnInit {
   isOwnMessage: boolean;
   ownEmail: string;
 
-  constructor(private authService: AuthService) 
+  constructor(
+    private authService: AuthService,
+    private userService: UserService) 
   { 
     console.log('ctor ChatMessage');
-    authService.authUser().subscribe( user =>
-    {
-      this.ownEmail = user.email;
-      this.isOwnMessage = this.ownEmail == this.userEmail;
-    })
+    //authService.authUser().subscribe( user =>
+    //{
+    //  this.ownEmail = user.email;
+    //  this.isOwnMessage = this.ownEmail == this.userEmail;
+    //})
+
+    var user = userService.getCurrentUser();
+    //this.ownEmail = user.;
 
   }
 
