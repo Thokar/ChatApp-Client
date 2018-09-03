@@ -1,30 +1,39 @@
 <div class="container">
   <div class="signUpCard">
-    <form #signUpForm="ngForm">
+    <!-- <form #signUpForm="ngForm">-->
+    <form [formGroup]="registerForm">
       <h2 class="heading">Sign Up</h2>
       
       <label class="label">Email</label>
+      <!-- legacy binding [(ngModel)]="email"-->
       <input type="email" name="email"
+        formControlName="email"
         placeholder="Enter your email address"
-        [(ngModel)]="email" class="formInput"
+         class="formInput"
         maxlength="60" required />
 
       <label class="label">Password</label>
+      <!-- legacy binding [(ngModel)]="password"-->
       <input type="password" name="password"
         placeholder="Choose a password"
-        [(ngModel)]="password" class="formInput"
+        formControlName="password"
+        class="formInput"
         required />
       <label class="label">DisplayName</label>
+      <!-- legacy binding [(ngModel)]="displayName"-->
       <input name="displayName"
         placeholder="Enter a display name"
-        [(ngModel)]="displayName" class="formInput"
+        formControlName="displayName"
+        class="formInput"
         maxlength="12" required />
       <button [disabled]="!signUpForm.form.valid"
-          type="submit" (click)="signUp()"
+          type="submit" (click)="tryRegister()"
           class="btn" id="btn-signUp">
           Sign Up
       </button>
-      <label class="errorMsg" [(ngModel)]="errorMsg"></label>  
+      <!-- legacy binding [(ngModel)]="errorMsg" -->
+      <label class="errorMsg">{{errorMsg}}</label>
+      <label class="success">{{successMsg}}</label>
     </form>
           <button type="button" class="btn " (click)="tryFacebookLogin()">Register with Facebook</button>
           <button type="button" class="btn" (click)="tryGoogleLogin()">Register with Google</button>
