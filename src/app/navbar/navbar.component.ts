@@ -36,7 +36,10 @@ export class NavbarComponent implements OnInit {
       
       this.userObservable =  new Observable( obj => {obj.next(user);})
 
-    }).catch (err => console.log(err));
+    }).catch (err => { 
+        console.log(err);
+        //this.router.navigate(['/login']);
+    });
 
     // new try
     //this.user = this.userService.getCurrentUser();

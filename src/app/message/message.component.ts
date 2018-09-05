@@ -31,9 +31,18 @@ export class MessageComponent implements OnInit {
     //  this.isOwnMessage = this.ownEmail == this.userEmail;
     //})
 
-    var user = userService.getCurrentUser();
-    //this.ownEmail = user.email;
+    var lUser = this.userService.getCurrentUser();
+    lUser.then(user => {
+      this.userEmail = user.email;
+      this.isOwnMessage = this.ownEmail == this.userEmail;
+      this.userName = user.displayName;
+      //this.user = user;
+      //this.userObservable =  new Observable( obj => {obj.next(user);})
 
+    }).catch (err => { 
+        console.log(err);
+        //this.router.navigate(['/login']);
+    });
   }
 
   ngOnInit(chatMessage = this.chatMessage) 
