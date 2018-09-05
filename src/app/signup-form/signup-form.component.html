@@ -35,16 +35,16 @@
           Sign Up
       </button>
       <!-- legacy binding [(ngModel)]="errorMsg" -->
-      <label class="label errorMsg">{{errorMsg}}</label>
-      <label class="label success">{{successMsg}}</label>
-  
-      <!--<button type="button" class="btn " (click)="tryFacebookLogin()">Register with Facebook</button>
-      <button type="button" class="btn" (click)="tryGoogleLogin()">Register with Google</button>
-      <button type="button" class="btn" (click)="tryTwitterLogin()">Register with Twitter</button>
-      -->
       <div class="infoField">
           <p>Already have an account? <a href="/login">Login</a></p>
       </div>
+      <!--
+      <button type="button" class="btn " (click)="tryFacebookLogin()">Register with Facebook</button>
+      <button type="button" class="btn" (click)="tryGoogleLogin()">Register with Google</button>
+      <button type="button" class="btn" (click)="tryTwitterLogin()">Register with Twitter</button>
+      -->
+      <label class="label errorMsg">{{errorMsg}}</label>
+      <label class="label success">{{successMsg}}</label>
     </form>
   </div>
 </div>

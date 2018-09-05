@@ -13,7 +13,7 @@ import { UserService } from '../services/user.service';
 export class NavbarComponent implements OnInit {
 
   //user: Observable<firebase.User>;
-  user: Promise<any>;
+  user: Promise<firebase.User>;
   userEmail: string;
 
   constructor(
@@ -29,6 +29,11 @@ export class NavbarComponent implements OnInit {
     console.log('OnInit Navbar');
 
     this.user = this.userService.getCurrentUser();
+    this.user.then(user => {
+      this.userEmail = user.email;
+    });
+    
+
     //this.user.subscribe(user => {
     //  if(user)
     //  {
@@ -50,11 +55,11 @@ export class NavbarComponent implements OnInit {
   {
     console.log('logout');
     this.authService.doLogout();
+    this.router.navigate(['/login']);
   }
 
   login()
   {
-
+    this.router.navigate(['/login']);
   }
-
 }

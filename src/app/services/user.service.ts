@@ -14,7 +14,7 @@ export class UserService {
 
   getCurrentUser()
   {
-    return new Promise<any>((resolve, reject) => 
+    return new Promise<firebase.User>((resolve, reject) => 
     {
       var user = firebase.auth().onAuthStateChanged(
         function(user)
