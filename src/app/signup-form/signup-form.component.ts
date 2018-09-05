@@ -60,6 +60,8 @@ export class SignupFormComponent implements OnInit {
       console.log(res);
       this.errorMsg = "";
       this.successMsg = "Your account has been created";
+      this.router.navigate(['/chat']);
+
     }, err => {
       console.log(err);
       this.errorMsg = err.message;
