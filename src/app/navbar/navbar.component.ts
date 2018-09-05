@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, ObjectUnsubscribedError } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { UserService } from '../services/user.service';
 
@@ -12,7 +12,7 @@ import { UserService } from '../services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  //user: Observable<firebase.User>;
+  userObservable: Observable<firebase.User>;
   //user: Promise<firebase.User>;
   user: firebase.User;
   userEmail: string;
@@ -33,6 +33,9 @@ export class NavbarComponent implements OnInit {
     lUser.then(user => {
       this.userEmail = user.email;
       this.user = user;
+      
+      this.userObservable =  new Observable( obj => {obj.next(user);})
+
     }).catch (err => console.log(err));
 
     // new try
