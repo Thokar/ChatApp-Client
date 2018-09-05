@@ -41,7 +41,7 @@ module.exports = ".chatHeaderWrapper {\r\n    height: 90px;\r\n    color: #222;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"chatRoom\">\r\n  <div class=\"chatHeaderWrapper\">\r\n    <app-navbar></app-navbar>\r\n  </div>\r\n  <router-outlet></router-outlet>\r\n  <!-- test single components-->\r\n  <!--<app-login-form></app-login-form>-->\r\n</div>"
+module.exports = "<div class=\"chatRoom\">\r\n  <div class=\"chatHeaderWrapper\">\r\n    <app-navbar></app-navbar>\r\n  </div>\r\n  <!--<router-outlet></router-outlet>-->\r\n  <!-- test single components-->\r\n  <!--<app-login-form></app-login-form>-->\r\n  <app-user></app-user>\r\n</div>"
 
 /***/ }),
 
@@ -108,14 +108,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./user-list/user-list.component */ "./src/app/user-list/user-list.component.ts");
 /* harmony import */ var _user_item_user_item_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./user-item/user-item.component */ "./src/app/user-item/user-item.component.ts");
 /* harmony import */ var _chat_form_chat_form_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./chat-form/chat-form.component */ "./src/app/chat-form/chat-form.component.ts");
-/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/chat.service */ "./src/app/services/chat.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_authGuard_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/authGuard.service */ "./src/app/services/authGuard.service.ts");
-/* harmony import */ var _services_userResolver_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/userResolver.service */ "./src/app/services/userResolver.service.ts");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../routes */ "./src/routes.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _user_user_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./user/user.component */ "./src/app/user/user.component.ts");
+/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/chat.service */ "./src/app/services/chat.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_authGuard_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/authGuard.service */ "./src/app/services/authGuard.service.ts");
+/* harmony import */ var _services_userResolver_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/userResolver.service */ "./src/app/services/userResolver.service.ts");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../routes */ "./src/routes.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -165,19 +165,19 @@ var AppModule = /** @class */ (function () {
                 _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_14__["UserListComponent"],
                 _user_item_user_item_component__WEBPACK_IMPORTED_MODULE_15__["UserItemComponent"],
                 _chat_form_chat_form_component__WEBPACK_IMPORTED_MODULE_16__["ChatFormComponent"],
-                _user_user_component__WEBPACK_IMPORTED_MODULE_24__["UserComponent"],
+                _user_user_component__WEBPACK_IMPORTED_MODULE_17__["UserComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_22__["appRoutes"], { useHash: false }),
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_23__["appRoutes"], { useHash: false }),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 angularfire2__WEBPACK_IMPORTED_MODULE_4__["AngularFireModule"],
                 angularfire2_database__WEBPACK_IMPORTED_MODULE_5__["AngularFireDatabaseModule"],
                 angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuthModule"],
-                angularfire2__WEBPACK_IMPORTED_MODULE_4__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_23__["environment"].firebase),
+                angularfire2__WEBPACK_IMPORTED_MODULE_4__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_24__["environment"].firebase),
             ],
-            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_18__["AuthService"], _services_chat_service__WEBPACK_IMPORTED_MODULE_17__["ChatService"], _services_user_service__WEBPACK_IMPORTED_MODULE_19__["UserService"], _services_authGuard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"], _services_userResolver_service__WEBPACK_IMPORTED_MODULE_21__["UserResolverService"]],
+            providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_19__["AuthService"], _services_chat_service__WEBPACK_IMPORTED_MODULE_18__["ChatService"], _services_user_service__WEBPACK_IMPORTED_MODULE_20__["UserService"], _services_authGuard_service__WEBPACK_IMPORTED_MODULE_21__["AuthGuardService"], _services_userResolver_service__WEBPACK_IMPORTED_MODULE_22__["UserResolverService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
@@ -423,7 +423,7 @@ var FeedComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".loginContainer\r\n{\r\n    height: 100%;\r\n    overflow: hidden;\r\n    background:\r\n        linear-gradient(45deg, rgba(255,103,0,0.3), rgba(0,0,80,0.9)),\r\n        url('botanical-cactus-close-up-305821.jpg') center center no-repeat;;\r\n    background-size: 100%;\r\n}\r\n.loginCard\r\n{\r\n    display: block;\r\n    border: ipx solid #000;\r\n    border-radius: 4px;\r\n    background-color: rgba(255,255,255,0.85);\r\n    width: 700px;\r\n    height: 420px;\r\n    margin: auto;\r\n    margin-top: 40px;\r\n    text-align: center;\r\n    padding: 80px 30px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    overflow: hidden;\r\n}\r\n.loginFormInput\r\n{\r\n    margin: auto;\r\n    margin-top: 16px;\r\n    display: block;\r\n    width: 60%;\r\n    height: 40px;\r\n    border-radius: 4px;\r\n    background: #ecf0f1;\r\n    border: #ccc 1px solid;\r\n    padding: 8px;\r\n    font-size:1em;\r\n}\r\n.btn\r\n{\r\n    height: 54px;\r\n    width: 60%;\r\n    margin: auto;\r\n    margin-top: 16px;\r\n    border: none;\r\n    color: white;\r\n    padding: 15px 32px;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n    border-radius: 4px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    transition: ease-in 0.2s;\r\n}\r\n#btn-signUp\r\n{\r\n    background-color:#2A2845;\r\n}\r\n#btn-signUp:hover\r\n{\r\n    background-color:#4A4865;\r\n    transition: ease-in 0.2s;\r\n}\r\n#btn-login\r\n{\r\n    background-color:#4A4875;\r\n}\r\n#btn-login:hover\r\n{\r\n    background-color: #5A5895;\r\n    transition: ease-in 0.2s;\r\n}\r\n.loginHeading\r\n{\r\n    height: 2em;\r\n}\r\n.errorMsg\r\n{\r\n    color: red;\r\n}\r\n.row\r\n{\r\n    margin-top: 10px;\r\n}"
+module.exports = ".loginContainer\r\n{\r\n    height: 100%;\r\n    overflow: hidden;\r\n    background:\r\n        linear-gradient(45deg, rgba(255,103,0,0.3), rgba(0,0,80,0.9)),\r\n        url('botanical-cactus-close-up-305821.jpg') center center no-repeat;;\r\n    background-size: 100%;\r\n}\r\n.loginCard\r\n{\r\n    display: block;\r\n    border: 1px solid #000;\r\n    border-radius: 4px;\r\n    background-color: rgba(255,255,255,0.85);\r\n    width: 700px;\r\n    height: 520px;\r\n    margin: auto;\r\n    margin-top: auto;\r\n    padding: 80px 30px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    overflow: hidden;\r\n}\r\n.loginFormInput\r\n{\r\n    margin-bottom: 18px;\r\n    display: block;\r\n    width: 100%;\r\n    height: 40px;\r\n    border-radius: 4px;\r\n    background: #ecf0f1;\r\n    border: #ccc 1px solid;\r\n    padding: 8px;\r\n    font-size:1em;\r\n}\r\n.btn\r\n{\r\n    height: 54px;\r\n    width: 100%;\r\n    margin: auto;\r\n    margin-top: 16px;\r\n    border: none;\r\n    color: white;\r\n    padding: 15px 32px;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n    border-radius: 4px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    transition: ease-in 0.2s;\r\n}\r\n#btn-signUp\r\n{\r\n    background-color:#2A2845;\r\n}\r\n#btn-signUp:hover\r\n{\r\n    background-color:#4A4865;\r\n    transition: ease-in 0.2s;\r\n}\r\n#btn-login\r\n{\r\n    background-color:#4A4875;\r\n}\r\n#btn-login:hover\r\n{\r\n    background-color: #5A5895;\r\n    transition: ease-in 0.2s;\r\n}\r\n.loginHeading\r\n{\r\n    height: 2em;\r\n}\r\n.errorMsg\r\n{\r\n    color: red;\r\n}\r\n.row\r\n{\r\n    margin-top: 10px;\r\n}\r\n.label \r\n{\r\n    font-size: 0.9em;\r\n}\r\n.infoField\r\n{\r\n    height: 54px;\r\n    border: none;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n    border-radius: 4px;\r\n    transition: ease-in 0.2s;\r\n    width: 100%;\r\n    margin-bottom: 18px;\r\n    margin-right: 2px;\r\n    font-size: 0.9em;\r\n}\r\n.rightItem\r\n{\r\n    width: 100%;\r\n    text-align: right;\r\n    height: 54px;\r\n}\r\nh2 \r\n{\r\n    text-align: center;\r\n    height: 2em;\r\n}"
 
 /***/ }),
 
@@ -434,7 +434,7 @@ module.exports = ".loginContainer\r\n{\r\n    height: 100%;\r\n    overflow: hid
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"loginContainer\">\r\n  <div class=\"loginCard\">\r\n    <h2 class=\"loginHeading\">Log In</h2>\r\n    <form [formGroup]=\"loginForm\">\r\n      <!-- old binding  [(ngModel)]=\"email\" -->\r\n      <input\r\n      type=\"email\"\r\n      formControlName=\"email\"\r\n      name=\"email\"\r\n      class=\"loginFormInput\"\r\n      required/>\r\n      <!-- old binding  [(ngModel)]=\"password\"-->\r\n      <input\r\n      type=\"password\"\r\n      formControlName=\"password\"\r\n      name=\"password\"\r\n      class=\"loginFormInput\"\r\n      required />\r\n      <button class=\"btn\"\r\n              type=\"submit\" \r\n              id=\"btn-login\"\r\n              (click)=\"tryLogin(loginForm.value)\">\r\n              Log In\r\n      </button>\r\n      <label class=\"errorMsg\" [(ngModel)]=\"errorMsg\"></label>\r\n    </form>\r\n  </div>\r\n  <div class=\"row\">\r\n      <div class=\"col-md-4 col-md-offset-4\">\r\n        <button type=\"button\" class=\"btn btn-primary btn-block\" (click)=\"tryFacebookLogin()\">Login with Facebook</button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-4 col-md-offset-4\">\r\n        <button type=\"button\" class=\"btn btn-danger btn-block\" (click)=\"tryGoogleLogin()\">Login with Google</button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-4 col-md-offset-4\">\r\n        <button type=\"button\" class=\"btn btn-info btn-block\" (click)=\"tryTwitterLogin()\">Login with Twitter</button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-4 col-md-offset-4\">\r\n        <p>No account yet? <a href=\"/register\">Create an account</a></p>\r\n      </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"loginContainer\">\r\n  <div class=\"loginCard\">\r\n    <h2 class=\"loginHeading\">Log In</h2>\r\n    <form [formGroup]=\"loginForm\">\r\n      <!-- old binding  [(ngModel)]=\"email\" -->\r\n      <label class=\"label\">Email</label>\r\n      <input\r\n      type=\"email\"\r\n      formControlName=\"email\"\r\n      name=\"email\"\r\n      class=\"loginFormInput\"\r\n      required/>\r\n      <!-- old binding  [(ngModel)]=\"password\"-->\r\n      <label class=\"label\">Password</label>\r\n      <input\r\n      type=\"password\"\r\n      formControlName=\"password\"\r\n      name=\"password\"\r\n      class=\"loginFormInput\"\r\n      required />\r\n      <button class=\"btn\"\r\n              type=\"submit\" \r\n              id=\"btn-login\"\r\n              (click)=\"tryLogin(loginForm.value)\">\r\n              Log In\r\n      </button>\r\n\r\n  \r\n      <div class=\"rightItem\">\r\n        <label class=\"label infoField\">No account yet?</label>\r\n        <a class=\"label infoField\" href=\"/signup\">Create an account</a>\r\n      </div>\r\n      <!-- \r\n      <button type=\"button\" class=\"btn\" (click)=\"tryFacebookLogin()\">Login with Facebook</button>\r\n      <button type=\"button\" class=\"btn\" (click)=\"tryGoogleLogin()\">Login with Google</button>\r\n      <button type=\"button\" class=\"btn\" (click)=\"tryTwitterLogin()\">Login with Twitter</button>\r\n      -->\r\n      <!-- nnModel cannot be used in a form-->\r\n      <!--<label class=\"errorMsg\" [(ngModel)]=\"errorMsg\"></label> -->\r\n      <label class=\"errorMsg\">{{ errorMsg }}</label>\r\n    </form>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -501,28 +501,29 @@ var LoginFormComponent = /** @class */ (function () {
         var _this = this;
         this.authService.doFacebookLogin()
             .then(function (res) {
-            _this.router.navigate(['/user']);
+            _this.router.navigate(['/chat']);
         });
     };
     LoginFormComponent.prototype.tryTwitterLogin = function () {
         var _this = this;
         this.authService.doTwitterLogin()
             .then(function (res) {
-            _this.router.navigate(['/user']);
+            _this.router.navigate(['/chat']);
         });
     };
     LoginFormComponent.prototype.tryGoogleLogin = function () {
         var _this = this;
         this.authService.doGoogleLogin()
             .then(function (res) {
-            _this.router.navigate(['/user']);
+            _this.router.navigate(['/chat']);
         });
     };
     LoginFormComponent.prototype.tryLogin = function (value) {
         var _this = this;
+        console.log('tryLogin');
         this.authService.doLogin(value)
             .then(function (res) {
-            _this.router.navigate(['/user']);
+            _this.router.navigate(['/chat']);
         }, function (err) {
             console.log(err);
             _this.errorMsg = err.message;
@@ -583,6 +584,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _models_chat_message_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/chat-message.model */ "./src/app/models/chat-message.model.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -595,14 +597,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var MessageComponent = /** @class */ (function () {
-    function MessageComponent(authService) {
+    function MessageComponent(authService, userService) {
         var _this = this;
         this.authService = authService;
+        this.userService = userService;
         console.log('ctor ChatMessage');
-        authService.authUser().subscribe(function (user) {
-            _this.ownEmail = user.email;
+        //authService.authUser().subscribe( user =>
+        //{
+        //  this.ownEmail = user.email;
+        //  this.isOwnMessage = this.ownEmail == this.userEmail;
+        //})
+        var lUser = this.userService.getCurrentUser();
+        lUser.then(function (user) {
+            _this.userEmail = user.email;
             _this.isOwnMessage = _this.ownEmail == _this.userEmail;
+            _this.userName = user.displayName;
+            //this.user = user;
+            //this.userObservable =  new Observable( obj => {obj.next(user);})
+        }).catch(function (err) {
+            console.log(err);
+            //this.router.navigate(['/login']);
         });
     }
     MessageComponent.prototype.ngOnInit = function (chatMessage) {
@@ -623,7 +639,8 @@ var MessageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./message.component.html */ "./src/app/message/message.component.html"),
             styles: [__webpack_require__(/*! ./message.component.css */ "./src/app/message/message.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], MessageComponent);
     return MessageComponent;
 }());
@@ -713,7 +730,7 @@ module.exports = ".navBar\r\n{\r\n    width: 100%;\r\n    display: flex;\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"navBar\">\r\n <div id=\"logo\"></div>\r\n  <div id=\"heading\"><a routerLink=\"/\">basechat</a></div>\r\n  <div class=\"links\">\r\n    <div *ngIf=\"(user | async); else notLoggedIn\">\r\n          <span>\r\n              <span id=\"userEmail\">Hello {{userEmail}}</span>\r\n            </span>\r\n            <span>\r\n              <a href='#' (click)=\"logout()\">Logout</a>\r\n            </span>\r\n    </div>\r\n    <ng-template  #notLoggedIn>\r\n          <span>\r\n              <a href=\"#\" (click)=\"login()\">Login</a>\r\n            </span>\r\n            <span>\r\n              <a routerLink=\"/signup\">Sign Up</a>\r\n            </span>\r\n      </ng-template>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"navBar\">\r\n <div id=\"logo\"></div>\r\n  <div id=\"heading\"><a routerLink=\"/\">basechat</a></div>\r\n  <div class=\"links\">\r\n    <div *ngIf=\"(user | async); else notLoggedIn\">\r\n          <span>\r\n            <a href='/user' id=\"userEmail\">Hello {{userEmail}}</a>\r\n            </span>\r\n            <span>\r\n              <a href='#' (click)=\"logout()\">Logout</a>\r\n            </span>\r\n    </div>\r\n    <ng-template  #notLoggedIn>\r\n          <span>\r\n              <a href=\"/login\" (click)=\"login()\">Login</a>\r\n            </span>\r\n            <span>\r\n              <a routerLink=\"/signup\">Sign Up</a>\r\n            </span>\r\n      </ng-template>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -730,6 +747,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -742,32 +760,59 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent(authService, router) {
+    function NavbarComponent(authService, router, userService) {
         this.authService = authService;
         this.router = router;
+        this.userService = userService;
         console.log('Init Navbar');
     }
     NavbarComponent.prototype.ngOnInit = function () {
-        var _this = this;
         console.log('OnInit Navbar');
-        this.user = this.authService.authUser();
-        this.user.subscribe(function (user) {
-            if (user) {
-                console.log('we have a user');
-                _this.userEmail = user.email;
-            }
-            else {
-                console.log('no user');
-                _this.router.navigate(['login']);
-            }
+        var lUser = this.userService.getCurrentUser();
+        lUser.then(function (user) {
+            //this.userEmail = user.email;
+            //this.user = user;
+            //this.userObservable =  new Observable( obj => {obj.next(user);})
+        }).catch(function (err) {
+            console.log(err);
+            //this.router.navigate(['/login']);
         });
+        // new try
+        //this.user = this.userService.getCurrentUser();
+        //this.user.then(user => {
+        //  this.userEmail = user.email;
+        //}).catch (err => console.log(err));
+        //this.user.subscribe(user => {
+        //  if(user)
+        //  {
+        //    console.log('we have a user');
+        //    this.userEmail = user.email;
+        //  }
+        //  else
+        //  {
+        //    console.log('no user');
+        //    //this.router.navigate(['login']);
+        //  }
+        //  
+        //});
         console.log('OnInit Navbar - complete');
     };
     NavbarComponent.prototype.logout = function () {
-        this.authService.logout();
+        var _this = this;
+        console.log('logout');
+        this.authService.doLogout();
+        this.authService.doLogout()
+            .then(function (res) {
+            //this.location.back();
+            _this.router.navigate(['/login']);
+        }, function (error) {
+            console.log("Logout error", error);
+        });
     };
     NavbarComponent.prototype.login = function () {
+        this.router.navigate(['/login']);
     };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -775,7 +820,9 @@ var NavbarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -826,74 +873,94 @@ var AuthService = /** @class */ (function () {
             if (auth !== undefined && auth !== null) {
                 _this.userObject = auth;
                 var status_1 = 'online';
-                _this.setUserStatus(status_1);
+                //this.setUserStatus(status);
             }
         });
     }
     // Legacy API
-    AuthService.prototype.authUser = function () {
-        return this.user;
-    };
-    Object.defineProperty(AuthService.prototype, "currentUserId", {
-        get: function () {
-            return this.authState !== null ? this.authState.uid : '';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    AuthService.prototype.login = function (email, password) {
-        console.log('login');
-        var loginResult = this.afAuth.auth.signInWithEmailAndPassword(email, password);
-        return loginResult;
-    };
-    AuthService.prototype.signUp = function (email, password, displayName) {
-        var _this = this;
-        return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(function (user) {
-            _this.authState = user;
-            var status = 'online';
-            _this.setUserData(email, displayName, status, user.user.uid);
-        }).catch(function (error) { return console.log(error); });
-    };
-    AuthService.prototype.logout = function () {
-        var status = 'offine';
-        this.setUserStatus(status);
-        this.afAuth.auth.signOut();
-        this.router.navigate(['login']);
-    };
-    AuthService.prototype.setUserData = function (email, displayName, status, userId) {
-        try {
-            var list = this.db.list('users');
-            list.push({
-                displayName: displayName,
-                email: email,
-                status: status,
-                uid: userId,
-            });
-            /* works ok:
-            const pushId = this.db.createPushId();
-            const item =  {
-              displayName: displayName,
-              email: email,
-              status: status,
-              uid: userId,
-              id: pushId,
-              indexOn: "uid",
-            };
-            this.UsersRef.set(item.id, item);
-            */
-        }
-        catch (error) {
-            console.log(error);
-        }
-    };
-    AuthService.prototype.setUserStatus = function (status) {
-        var path = "users/" + this.currentUserId;
-        var data = {
-            status: status
-        };
-        this.db.object(path).update(data)
-            .catch(function (error) { return console.log(error); });
-    };
+    //authUser() 
+    //{
+    //  return this.user;
+    //}
+    //get currentUserId(): string 
+    //{
+    //  return this.authState !== null ? this.authState.uid: '';
+    //}
+    //login(email: string, password: string)
+    //{
+    //  console.log('login');
+    //  var loginResult =  this.afAuth.auth.signInWithEmailAndPassword
+    //  (email, password);
+    //
+    //  return loginResult;
+    //}
+    //signUp(email: string, password: string, displayName: string)
+    //{
+    //  return this.afAuth.auth.createUserWithEmailAndPassword
+    //  (
+    //    email,
+    //    password,
+    //  ).then((user) => 
+    //    {
+    //      this.authState = user;
+    //      const status = 'online';
+    //      this.setUserData(
+    //        email, 
+    //        displayName, 
+    //        status,
+    //        user.user.uid,
+    //      )}
+    //  ).catch(error => console.log(error));
+    //}
+    //logout()
+    //{
+    //  const status = 'offine';
+    //  this.setUserStatus(status);
+    //  this.afAuth.auth.signOut();
+    //  //this.router.navigate(['login']);
+    //}
+    //setUserData(
+    //  email: string,
+    //  displayName: string, 
+    //  status: string,
+    //  userId: string): void 
+    //{
+    //  try {
+    //    const list = this.db.list('users');
+    //    list.push({ 
+    //      displayName: displayName,
+    //      email: email,
+    //      status: status,
+    //      uid: userId,
+    //    });
+    //
+    //    /* works ok:
+    //    const pushId = this.db.createPushId();
+    //    const item =  { 
+    //      displayName: displayName,
+    //      email: email,
+    //      status: status,
+    //      uid: userId,
+    //      id: pushId,
+    //      indexOn: "uid",
+    //    };
+    //    this.UsersRef.set(item.id, item);
+    //    */
+    //  }
+    //  catch(error)
+    //  { 
+    //    console.log(error)
+    //  } 
+    //} 
+    //setUserStatus(status: string): void 
+    //{
+    //  const path = `users/${this.currentUserId}`;
+    //  const data = {
+    //    status: status
+    //  }
+    //  this.db.object(path).update(data)
+    //  .catch(error => console.log(error));
+    //}
     // New API for Angular 6
     AuthService.prototype.doFacebookLogin = function () {
         var _this = this;
@@ -948,11 +1015,15 @@ var AuthService = /** @class */ (function () {
         });
     };
     AuthService.prototype.doLogin = function (value) {
+        console.log('doLogin');
         return new Promise(function (resolve, reject) {
             firebase_app__WEBPACK_IMPORTED_MODULE_4__["auth"]().signInWithEmailAndPassword(value.email, value.password)
                 .then(function (res) {
                 resolve(res);
-            }, function (err) { return reject(err); });
+            }, function (err) {
+                console.log(err);
+                reject(err);
+            });
         });
     };
     AuthService.prototype.doLogout = function () {
@@ -1022,8 +1093,9 @@ var AuthGuardService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.userService.getCurrentUser()
                 .then(function (user) {
-                _this.router.navigate(['/user']);
-                return resolve(false);
+                console.log('AuthguardCanActivate');
+                //this.router.navigate(['/chat']);
+                return resolve(true);
             }, function (err) {
                 return resolve(true);
             });
@@ -1084,9 +1156,6 @@ var ChatService = /** @class */ (function () {
                 _this.chatMessages = _this.getMessageFeed().valueChanges();
             }
             //this.userName = this.userObj.displayName;
-            console.log('UserNameStr: ' + _this.user.displayName);
-            console.log('Called constructor!');
-            //console.log(this.userObj.displayName);
         });
     }
     // gute referenz: https://grokonez.com/frontend/angular/angular-5-firebase-crud-operations-with-angularfire2-v5#2_Object
@@ -1288,7 +1357,8 @@ var UserResolverService = /** @class */ (function () {
                     return resolve(user);
                 }
             }, function (err) {
-                _this.router.navigate(['/login']);
+                console.log('redirect login');
+                //this.router.navigate(['/login']);
                 return reject(err);
             });
         });
@@ -1313,7 +1383,7 @@ var UserResolverService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container \r\n{\r\n    overflow: hidden;\r\n    background:\r\n    linear-gradient(45deg, rgba(0,103, 255,0.3), rgba(0,150, 80,0.9) ),\r\n    url('photo_55025_20151126.jpg') center center no-repeat;;\r\n}\r\n.signUpCard \r\n{\r\n    display: block;\r\n    border: 1px solid #000;\r\n    border-radius: 4px;\r\n    background-color: rgba(255,255,255,0.85);\r\n    width: 700px; \r\n    height: 520px;\r\n    margin: auto;\r\n    margin-top: auto;\r\n    padding: 80px 30px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    overflow: hidden;\r\n}\r\n.formInput\r\n{\r\n    display: block;\r\n    width: 100%;\r\n    height: 40px;\r\n    border-radius: 4px;\r\n    background: #ecf0f1;\r\n    border: #ccc 1px solid;\r\n    padding: 8px;\r\n    font-size: 1em;\r\n    margin-bottom: 18px;\r\n}\r\n.btn\r\n{\r\n    height: 54px;\r\n    margin-top: 32px;\r\n    border: none;\r\n    color: white;\r\n    padding: 15px 32px;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n    border-radius: 4px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    transition: ease-in 0.2s;\r\n    width: 100%\r\n}\r\n#btn-signUp\r\n{\r\n    background-color: #2A2845;\r\n}\r\n#btn-signUp:hover\r\n{\r\n    background-color: #4a4865;\r\n    transition: ease-in 0.2s;\r\n}\r\n#btn-signUp:disabled\r\n{\r\n    background-color: #eee;\r\n    color: #999;\r\n}\r\nh2 \r\n{\r\n    text-align: center;\r\n    height: 2em;\r\n}\r\na \r\n{\r\n    text-decoration: none;\r\n}\r\n.label \r\n{\r\n    font-size: 0.9em;\r\n}\r\n.errorMsg\r\n{\r\n    color: red;\r\n}"
+module.exports = ".container \r\n{\r\n    overflow: hidden;\r\n    background:\r\n    linear-gradient(45deg, rgba(0,103, 255,0.3), rgba(0,150, 80,0.9) ),\r\n    url('photo_55025_20151126.jpg') center center no-repeat;;\r\n}\r\n.signUpCard \r\n{\r\n    display: block;\r\n    border: 1px solid #000;\r\n    border-radius: 4px;\r\n    background-color: rgba(255,255,255,0.85);\r\n    width: 700px; \r\n    height: 600px;\r\n    margin: auto;\r\n    margin-top: auto;\r\n    padding: 80px 30px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    overflow: hidden;\r\n}\r\n.formInput\r\n{\r\n    display: block;\r\n    width: 100%;\r\n    height: 40px;\r\n    border-radius: 4px;\r\n    background: #ecf0f1;\r\n    border: #ccc 1px solid;\r\n    padding: 8px;\r\n    font-size: 1em;\r\n    margin-bottom: 18px;\r\n}\r\n.btn\r\n{\r\n    height: 54px;\r\n    margin-top: 32px;\r\n    border: none;\r\n    color: white;\r\n    padding: 15px 32px;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n    border-radius: 4px;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);\r\n    transition: ease-in 0.2s;\r\n    width: 100%;\r\n    margin-bottom: 18px;\r\n}\r\n#btn-signUp\r\n{\r\n    background-color: #2A2845;\r\n}\r\n#btn-signUp:hover\r\n{\r\n    background-color: #4a4865;\r\n    transition: ease-in 0.2s;\r\n}\r\n#btn-signUp:disabled\r\n{\r\n    background-color: #eee;\r\n    color: #999;\r\n}\r\nh2 \r\n{\r\n    text-align: center;\r\n    height: 2em;\r\n}\r\na \r\n{\r\n    text-decoration: none;\r\n}\r\n.label \r\n{\r\n    font-size: 0.9em;\r\n}\r\n.errorMsg\r\n{\r\n    color: red;\r\n}\r\n.infoField\r\n{\r\n    height: 54px;\r\n    border: none;\r\n    text-align: center;\r\n    text-decoration: none;\r\n    font-size: 16px;\r\n    border-radius: 4px;\r\n    transition: ease-in 0.2s;\r\n    width: 100%;\r\n    margin-bottom: 18px;\r\n    margin-right: 2px;\r\n    font-size: 0.9em;\r\n}\r\n.rightItem\r\n{\r\n    width: 100%;\r\n    text-align: right;\r\n    height: 54px;\r\n}"
 
 /***/ }),
 
@@ -1324,7 +1394,7 @@ module.exports = ".container \r\n{\r\n    overflow: hidden;\r\n    background:\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"signUpCard\">\r\n    <form #signUpForm=\"ngForm\">\r\n      <h2 class=\"heading\">Sign Up</h2>\r\n      \r\n      <label class=\"label\">Email</label>\r\n      <input type=\"email\" name=\"email\"\r\n        placeholder=\"Enter your email address\"\r\n        [(ngModel)]=\"email\" class=\"formInput\"\r\n        maxlength=\"60\" required />\r\n\r\n      <label class=\"label\">Password</label>\r\n      <input type=\"password\" name=\"password\"\r\n        placeholder=\"Choose a password\"\r\n        [(ngModel)]=\"password\" class=\"formInput\"\r\n        required />\r\n      <label class=\"label\">DisplayName</label>\r\n      <input name=\"displayName\"\r\n        placeholder=\"Enter a display name\"\r\n        [(ngModel)]=\"displayName\" class=\"formInput\"\r\n        maxlength=\"12\" required />\r\n      <button [disabled]=\"!signUpForm.form.valid\"\r\n          type=\"submit\" (click)=\"signUp()\"\r\n          class=\"btn\" id=\"btn-signUp\">\r\n          Sign Up\r\n      </button>\r\n      <label class=\"errorMsg\" [(ngModel)]=\"errorMsg\"></label>  \r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<!-- <p>\r\n  signup-form works!\r\n</p>\r\n-->\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"signUpCard\">\r\n    <!-- <form #signUpForm=\"ngForm\">-->\r\n      <!-- article about form Group \r\n        https://toddmotto.com/reactive-formgroup-validation-angular-2\r\n      -->\r\n    <form [formGroup]=\"registerForm\">\r\n      <h2 class=\"heading\">Sign Up</h2>\r\n      <label class=\"label\">Email</label>\r\n      <!-- legacy binding [(ngModel)]=\"email\"-->\r\n      <input type=\"email\" name=\"email\"\r\n        formControlName=\"email\"\r\n        placeholder=\"Enter your email address\"\r\n         class=\"formInput\"\r\n        maxlength=\"60\" required />\r\n\r\n      <label class=\"label\">Password</label>\r\n      <!-- legacy binding [(ngModel)]=\"password\"-->\r\n      <input type=\"password\" name=\"password\"\r\n        placeholder=\"Choose a password\"\r\n        formControlName=\"password\"\r\n        class=\"formInput\"\r\n        required />\r\n      <label class=\"label\">DisplayName</label>\r\n      <!-- legacy binding [(ngModel)]=\"displayName\"-->\r\n      <input name=\"displayName\"\r\n        placeholder=\"Enter a display name\"\r\n        formControlName=\"displayName\"\r\n        class=\"formInput\"\r\n        maxlength=\"12\" required />\r\n      <button [disabled]=\"!registerForm.valid\"\r\n          type=\"submit\" (click)=\"tryRegister(registerForm.value)\"\r\n          class=\"btn\" id=\"btn-signUp\">\r\n          Sign Up\r\n      </button>\r\n      <!-- legacy binding [(ngModel)]=\"errorMsg\" -->\r\n      <div class=\"rightItem\">\r\n        <label class=\"label infoField\">Already have an account?</label>\r\n        <a class=\"label infoField\" href=\"/login\">Login</a>\r\n      </div>\r\n      <!--\r\n      <button type=\"button\" class=\"btn \" (click)=\"tryFacebookLogin()\">Register with Facebook</button>\r\n      <button type=\"button\" class=\"btn\" (click)=\"tryGoogleLogin()\">Register with Google</button>\r\n      <button type=\"button\" class=\"btn\" (click)=\"tryTwitterLogin()\">Register with Twitter</button>\r\n      -->\r\n      <label class=\"label errorMsg\">{{errorMsg}}</label>\r\n      <label class=\"label success\">{{successMsg}}</label>\r\n    </form>\r\n  </div>\r\n</div>\r\n\r\n<!-- <p>\r\n  signup-form works!\r\n</p>\r\n-->\r\n"
 
 /***/ }),
 
@@ -1341,6 +1411,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1353,22 +1424,73 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SignupFormComponent = /** @class */ (function () {
-    function SignupFormComponent(authService, router) {
+    function SignupFormComponent(authService, router, fb) {
         this.authService = authService;
         this.router = router;
+        this.fb = fb;
+        this.createForm();
     }
-    SignupFormComponent.prototype.signUp = function () {
-        var _this = this;
-        var email = this.email;
-        var password = this.password;
-        var displayName = this.displayName;
-        var result = this.authService.signUp(email, password, displayName).catch(function (error) { return _this.errorMsg = error.message; });
-        if (result) {
-            this.router.navigate(['chat']);
-        }
-    };
+    // legacy code
+    //signUp() {
+    //  const email = this.email;
+    //  const password = this.password;
+    //  const displayName = this.displayName;
+    //
+    //var result = this.authService.signUp(
+    //  email, 
+    //  password, 
+    //  displayName).catch(error => this.errorMsg = error.message);
+    //
+    //  if(result)
+    //  {
+    //    this.router.navigate(['chat']);
+    //  }
+    //}
     SignupFormComponent.prototype.ngOnInit = function () {
+    };
+    SignupFormComponent.prototype.createForm = function () {
+        this.registerForm = this.fb.group({
+            email: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            displayName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+        });
+    };
+    SignupFormComponent.prototype.tryRegister = function (value) {
+        var _this = this;
+        this.authService.doRegister(value)
+            .then(function (res) {
+            console.log(res);
+            _this.errorMsg = "";
+            _this.successMsg = "Your account has been created";
+            _this.router.navigate(['/chat']);
+        }, function (err) {
+            console.log(err);
+            _this.errorMsg = err.message;
+            _this.successMsg = "";
+        });
+    };
+    SignupFormComponent.prototype.tryFacebookLogin = function () {
+        var _this = this;
+        this.authService.doFacebookLogin()
+            .then(function (res) {
+            _this.router.navigate(['/chat']);
+        }, function (err) { return console.log(err); });
+    };
+    SignupFormComponent.prototype.tryTwitterLogin = function () {
+        var _this = this;
+        this.authService.doTwitterLogin()
+            .then(function (res) {
+            _this.router.navigate(['/chat']);
+        }, function (err) { return console.log(err); });
+    };
+    SignupFormComponent.prototype.tryGoogleLogin = function () {
+        var _this = this;
+        this.authService.doGoogleLogin()
+            .then(function (res) {
+            _this.router.navigate(['/chat']);
+        }, function (err) { return console.log(err); });
     };
     SignupFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1376,7 +1498,9 @@ var SignupFormComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./signup-form.component.html */ "./src/app/signup-form/signup-form.component.html"),
             styles: [__webpack_require__(/*! ./signup-form.component.css */ "./src/app/signup-form/signup-form.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]])
     ], SignupFormComponent);
     return SignupFormComponent;
 }());
@@ -1530,7 +1654,7 @@ var UserListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".image{\r\n    width: 100%\r\n  }\r\n  "
 
 /***/ }),
 
@@ -1541,7 +1665,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  user works!\n</p>\n"
+module.exports = "<div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-4 col-md-offset-4\">\n        <div class=\"card\" style=\"width: 20rem;\">\n          <img class=\"card-img-top image\" [src]=\"user.image\" alt=\"Card image cap\">\n          <div *ngIf='user.provider != \"password\"'class=\"card-body\">\n            <h4 class=\"card-title\">{{user.name}}</h4>\n            <p class=\"card-text\">This is an example of Social Authentication using Firebase in an Angular 5 web app. </p>\n          </div>\n          <div *ngIf='user.provider == \"password\"'class=\"card-body\">\n            <form [formGroup]=\"profileForm\">\n              <div class=\"form-group\">\n                <label>Your name</label>\n                <input type=\"text\" formControlName=\"name\" class=\"form-control\" required>\n              </div>\n            </form>\n            <a (click)=\"save(profileForm.value)\" class=\"btn btn-primary\">Save</a>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4\">\n        <button type=\"button\" (click)=\"logout()\" class=\"btn btn-link\">Logout</button>\n      </div>\n    </div>\n  </div>\n\n  "
 
 /***/ }),
 
@@ -1556,6 +1680,11 @@ module.exports = "<p>\n  user works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserComponent", function() { return UserComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _models_firebaseUserModel_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/firebaseUserModel.model */ "./src/app/models/firebaseUserModel.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1566,10 +1695,45 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var UserComponent = /** @class */ (function () {
-    function UserComponent() {
+    function UserComponent(userService, authService, route, 
+    //private location: Location,
+    fb) {
+        this.userService = userService;
+        this.authService = authService;
+        this.route = route;
+        this.fb = fb;
+        this.user = new _models_firebaseUserModel_model__WEBPACK_IMPORTED_MODULE_5__["FireBaseUserModel"]();
+        console.log('constructor User Component');
     }
     UserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log('ngOnInit User Component');
+        this.route.data.subscribe(function (routeData) {
+            var data = routeData['data'];
+            if (data) {
+                _this.user = data;
+                _this.createForm(_this.user.name);
+            }
+        });
+    };
+    UserComponent.prototype.createForm = function (name) {
+        this.profileForm = this.fb.group({
+            name: [name, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
+        });
+    };
+    UserComponent.prototype.save = function (value) {
+        this.userService.updateCurrentUser(value)
+            .then(function (res) {
+            console.log(res);
+        }, function (err) {
+            console.log(err);
+        });
     };
     UserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1577,7 +1741,10 @@ var UserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./user.component.html */ "./src/app/user/user.component.html"),
             styles: [__webpack_require__(/*! ./user.component.css */ "./src/app/user/user.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"],
+            _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]])
     ], UserComponent);
     return UserComponent;
 }());
@@ -1662,8 +1829,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_chatroom_chatroom_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/chatroom/chatroom.component */ "./src/app/chatroom/chatroom.component.ts");
 /* harmony import */ var _app_user_user_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/user/user.component */ "./src/app/user/user.component.ts");
 /* harmony import */ var _app_services_authGuard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app/services/authGuard.service */ "./src/app/services/authGuard.service.ts");
-/* harmony import */ var _app_services_userResolver_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app/services/userResolver.service */ "./src/app/services/userResolver.service.ts");
-
 
 
 
@@ -1673,7 +1838,9 @@ var appRoutes = [
     { path: 'signup', component: _app_signup_form_signup_form_component__WEBPACK_IMPORTED_MODULE_0__["SignupFormComponent"], canActivate: [_app_services_authGuard_service__WEBPACK_IMPORTED_MODULE_4__["AuthGuardService"]] },
     { path: 'login', component: _app_login_form_login_form_component__WEBPACK_IMPORTED_MODULE_1__["LoginFormComponent"], canActivate: [_app_services_authGuard_service__WEBPACK_IMPORTED_MODULE_4__["AuthGuardService"]] },
     { path: 'chat', component: _app_chatroom_chatroom_component__WEBPACK_IMPORTED_MODULE_2__["ChatroomComponent"], canActivate: [_app_services_authGuard_service__WEBPACK_IMPORTED_MODULE_4__["AuthGuardService"]] },
-    { path: 'user', component: _app_user_user_component__WEBPACK_IMPORTED_MODULE_3__["UserComponent"], resolve: { data: _app_services_userResolver_service__WEBPACK_IMPORTED_MODULE_5__["UserResolverService"] } },
+    { path: 'userForm', component: _app_user_user_component__WEBPACK_IMPORTED_MODULE_3__["UserComponent"] },
+    //{ path: 'user', component: UserComponent, canActivate: [AuthGuardService] }, 
+    //{ path: 'user', component: UserComponent,  resolve: { data: UserResolverService}},
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
