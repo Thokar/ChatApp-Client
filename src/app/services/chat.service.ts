@@ -39,9 +39,6 @@ export class ChatService {
         this.chatMessages = this.getMessageFeed().valueChanges();
       }
       //this.userName = this.userObj.displayName;
-      console.log('UserNameStr: ' + this.user.displayName);
-      console.log('Called constructor!');
-      //console.log(this.userObj.displayName);
     });
   }
 
