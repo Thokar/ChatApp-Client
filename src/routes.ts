@@ -10,7 +10,8 @@ export const appRoutes: Routes = [
     { path: 'signup', component: SignupFormComponent, canActivate: [AuthGuardService]},
     { path: 'login', component: LoginFormComponent, canActivate: [AuthGuardService] }, 
     { path: 'chat', component: ChatroomComponent, canActivate: [AuthGuardService] }, 
-    { path: 'user', component: UserComponent, canActivate: [AuthGuardService] }, 
+    { path: 'userForm', component: UserComponent }, 
+    //{ path: 'user', component: UserComponent, canActivate: [AuthGuardService] }, 
     //{ path: 'user', component: UserComponent,  resolve: { data: UserResolverService}},
     { path: '', redirectTo: '/login', pathMatch: 'full'},
 ];

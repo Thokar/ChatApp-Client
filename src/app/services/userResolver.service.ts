@@ -35,7 +35,8 @@ export class UserResolverService implements Resolve<FireBaseUserModel>
         }
       }, err => 
         {
-          this.router.navigate(['/login']);
+          console.log('redirect login');
+          //this.router.navigate(['/login']);
           return reject(err);
         }
       )

@@ -31,10 +31,10 @@ export class NavbarComponent implements OnInit {
 
     var lUser = this.userService.getCurrentUser();
     lUser.then(user => {
-      this.userEmail = user.email;
-      this.user = user;
+      //this.userEmail = user.email;
+      //this.user = user;
       
-      this.userObservable =  new Observable( obj => {obj.next(user);})
+      //this.userObservable =  new Observable( obj => {obj.next(user);})
 
     }).catch (err => { 
         console.log(err);
@@ -69,7 +69,14 @@ export class NavbarComponent implements OnInit {
   {
     console.log('logout');
     this.authService.doLogout();
-    this.router.navigate(['/login']);
+   
+    this.authService.doLogout()
+    .then((res) => {
+      //this.location.back();
+      this.router.navigate(['/login']);
+    }, (error) => {
+      console.log("Logout error", error);
+    });
   }
 
   login()

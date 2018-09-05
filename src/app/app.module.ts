@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { ChatFormComponent } from './chat-form/chat-form.component';
+import { UserComponent } from './user/user.component';
 
 import { ChatService } from './services/chat.service';
 import { AuthService } from './services/auth.service';
@@ -25,7 +26,6 @@ import { UserResolverService } from './services/userResolver.service';
 
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
-import { UserComponent } from './user/user.component';
 
 import { ReactiveFormsModule  } from '@angular/forms';
 
