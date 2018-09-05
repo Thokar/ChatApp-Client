@@ -3,6 +3,7 @@
     <h2 class="loginHeading">Log In</h2>
     <form [formGroup]="loginForm">
       <!-- old binding  [(ngModel)]="email" -->
+      <label class="label">Email</label>
       <input
       type="email"
       formControlName="email"
@@ -10,6 +11,7 @@
       class="loginFormInput"
       required/>
       <!-- old binding  [(ngModel)]="password"-->
+      <label class="label">Password</label>
       <input
       type="password"
       formControlName="password"
@@ -23,7 +25,7 @@
               Log In
       </button>
 
-    </form>
+    
         <!-- nnModel cannot be used in a form-->
         <!--<label class="errorMsg" [(ngModel)]="errorMsg"></label> -->
         <label class="errorMsg">{{ errorMsg }}</label>
@@ -34,5 +36,6 @@
       <div>
         <p>No account yet? <a href="/register">Create an account</a></p>
       </div>
+    </form>
   </div>
 </div>
