@@ -2,9 +2,9 @@
  <div id="logo"></div>
   <div id="heading"><a routerLink="/">basechat</a></div>
   <div class="links">
-    <div *ngIf="(userObservable | async); else notLoggedIn">
+    <div *ngIf="!(userObservable | async); else notLoggedIn">
           <span>
-              <span id="userEmail">Hello {{userEmail}}</span>
+            <a href='/user' id="userEmail">Hello {{userEmail}}</a>
             </span>
             <span>
               <a href='#' (click)="logout()">Logout</a>
