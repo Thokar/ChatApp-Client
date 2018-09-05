@@ -14,10 +14,9 @@
     border-radius: 4px;
     background-color: rgba(255,255,255,0.85);
     width: 700px;
-    height: 420px;
+    height: 600px;
     margin: auto;
     margin-top: auto;
-    text-align: center;
     padding: 80px 30px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.17), 0 1px 2px rgba(0,0,0,0.24);
     overflow: hidden;
@@ -26,7 +25,7 @@
 {
     margin-bottom: 18px;
     display: block;
-    width: 60%;
+    width: 100%;
     height: 40px;
     border-radius: 4px;
     background: #ecf0f1;
@@ -37,7 +36,7 @@
 .btn
 {
     height: 54px;
-    width: 60%;
+    width: 100%;
     margin: auto;
     margin-top: 16px;
     border: none;
@@ -83,4 +82,29 @@
 .label 
 {
     font-size: 0.9em;
+}
+.infoField
+{
+    height: 54px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: ease-in 0.2s;
+    width: 100%;
+    margin-bottom: 18px;
+    margin-right: 2px;
+    font-size: 0.9em;
+}
+.rightItem
+{
+    width: 100%;
+    text-align: right;
+    height: 54px;
+}
+h2 
+{
+    text-align: center;
+    height: 2em;
 }

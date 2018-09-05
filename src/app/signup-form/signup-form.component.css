@@ -82,7 +82,6 @@ a
 {
     height: 54px;
     border: none;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
@@ -90,4 +89,12 @@ a
     transition: ease-in 0.2s;
     width: 100%;
     margin-bottom: 18px;
+    margin-right: 2px;
+    font-size: 0.9em;
+}
+.rightItem
+{
+    width: 100%;
+    text-align: right;
+    height: 54px;
 }
